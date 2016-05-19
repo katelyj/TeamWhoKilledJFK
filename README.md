@@ -1,2 +1,2 @@
-# TeamWhoKilledJFK
+# TeamWhoKilledJFKate
 FINAL PROJECT -- APCS2
