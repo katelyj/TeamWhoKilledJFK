@@ -1,3 +1,21 @@
 TEAM WHO KILLED JFKATE -- PLAN!
 
-Here is our plan.
+GAMEPLAY:
+
+- Done on Processing
+- WASD controls
+- Three maps, each played 3 times with progressively higher speeds
+- High Score Tracker -- Develop this later
+
+GAME BASICS:
+
+- Maps (core structure)
+- Points
+- Tile (attribrutes: color, dot, isPath)
+- Characters (attributes: color, lives, speed, state)
+    - Ghosts (moving algorithm)
+    - Pacman (user controlled)
+- Dots (attributes: value, color, size, state)
+    - Regular
+    - Glowy
+    - Fruits (moving algorithm)
