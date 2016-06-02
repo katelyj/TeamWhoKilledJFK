@@ -5,6 +5,7 @@ GAMEPLAY:
 - Done on Processing
 - WASD controls
 - Three maps, each played 3 times with progressively higher speeds
+- Final boss at the end? (If there is time to implement)
 - High Score Tracker -- Develop this later
 
 GAME BASICS:
