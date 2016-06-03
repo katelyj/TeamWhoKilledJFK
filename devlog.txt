@@ -14,3 +14,7 @@ After getting approval from Mr. Brown, we launched into work, developing our fir
 6/2/16
 The processing folder for our final project, Game, was born.
 We mapped out our gameplan on the gigantic master key to success.
+
+6/3/16
+In class, we all started writing the Character class together, and made great progress!
+We further fleshed out the attributes and methods each character should have.

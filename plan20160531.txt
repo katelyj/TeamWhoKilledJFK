@@ -13,9 +13,9 @@ GAME BASICS:
 - Maps (core structure)
 - Points
 - Tile (attribrutes: color, dot, isPath)
-- Characters (attributes: color, lives, speed, state)
-    - Ghosts (moving algorithm)
-    - Pacman (user controlled)
+- Characters (attributes: color, speed, state)
+    - Ghosts (moving algorithm, dying algorithm, changeSpeed)
+    - Pacman (user controlled, attributes: lives)
 - Dots (attributes: value, color, size, state)
     - Regular
     - Glowy
