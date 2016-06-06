@@ -18,3 +18,6 @@ We mapped out our gameplan on the gigantic master key to success.
 6/3/16
 In class, we all started writing the Character class together, and made great progress!
 We further fleshed out the attributes and methods each character should have.
+
+6/5/16
+We made an updated plan, and Kate created the file for all our needed classes.
