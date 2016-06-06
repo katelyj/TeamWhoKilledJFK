@@ -17,7 +17,7 @@ NOTABLE FEATURES:
 CLASSES NEEDED:
 
 - Driver/Main/Game/Whatever
-- Map
+- Map (with ghost spawn box)
 - Tile (attribrutes: color, dot, isPath)
 - Characters (attributes: color, speed, state)
     - Ghosts (moving algorithm, dying algorithm, changeSpeed)
