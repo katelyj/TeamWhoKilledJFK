@@ -6,11 +6,17 @@ abstract class Character {
   int col;
   int speed;
   int state;
+  int directionX;
+  int directionY;
+  int xpos;
+  int ypos;
   
   Character() {
       state = ALIVE;
       col = 1; //FIGURE THIS OUT LATER
       speed = 1; //DITTO
+      directionX = 1;
+      directionY = 0;
   }
   
   abstract void move();
