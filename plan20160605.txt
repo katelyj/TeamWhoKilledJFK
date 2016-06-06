@@ -1,1 +1,28 @@
-REVISED PLAN!
+TEAM WHO KILLED JFKATE -- REVISED PLAN!
+
+GAMEPLAY:
+
+- Map 1 --> 3 times, increasing speed
+- Map 2 --> 3 times, increasing speed
+- Map 3 --> 3 times, increasing speed
+- Final Boss (if time)
+
+NOTABLE FEATURES:
+
+- Done on Processing
+- WASD controls
+- Points
+- High Score Tracker
+
+CLASSES NEEDED:
+
+- Driver/Main/Game/Whatever
+- Map
+- Tile (attribrutes: color, dot, isPath)
+- Characters (attributes: color, speed, state)
+    - Ghosts (moving algorithm, dying algorithm, changeSpeed)
+    - Pacman (user controlled, attributes: lives)
+- Dots (attributes: value, color, size, state)
+    - Regular
+    - Glowy
+    - Fruits (moving algorithm)
