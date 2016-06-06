@@ -1,3 +1,8 @@
+/*=============================================
+  class Character -- The superclass for characters!
+  Subclasses: Ghost, Pacman
+  =============================================*/
+
 abstract class Character {
   
   final static int DEAD = 0;
@@ -20,6 +25,8 @@ abstract class Character {
   }
   
   abstract void move();
+  
+  abstract void wall();
   
   boolean isDead() {
      return state == DEAD; 

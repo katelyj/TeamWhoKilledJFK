@@ -1,3 +1,7 @@
+/*=============================================
+  class Pacman -- A subclass of Character!
+  =============================================*/
+
 class Pacman extends Character {
   
   Pacman() {
@@ -7,34 +11,36 @@ class Pacman extends Character {
     ypos = 0; //ditto
   }
   
-  void keyPressed() {
-    
-    if (key == CODED ) {
-      
-      if (keyCode == LEFT) { //move up the x axis
-        directionX = 1;
-        directionY = 0;
-      }
-      else if (keyCode == RIGHT) { //move down the x axis
-        directionX = -1;
-        directionY = 0;
-      }
-      else if (keyCode == UP) { //move up the y axis
-        directionX = 0;
-        directionY = -1; //"up" for processing is "down" for us
-      }
-      else if (keyCode == DOWN) { //move down the y axis
-        directionX = 0;
-        directionY = 1;
-      }
-      
-    }
-    
-  }
-  
   void move() {
     xpos = xpos+speed*directionX;
     ypos = ypos+speed*directionY;
+    wall();
+  }
+  
+  void wall() {
+    if ( xpos > width ) {
+      xpos = xpos-speed*directionX;
+    }
+    else if ( xpos < 0 ) {
+      xpos = xpos-speed*directionX;
+    }
+    else if ( ypos > height ) {
+      ypos = ypos-speed*directionY;
+    }
+    else if ( ypos < 0 ) {
+      ypos = ypos-speed*directionY;
+    }
+    else {
+      return;
+    }
+  }
+  
+  void setDirectionX(int i) {
+    directionX = i;
+  }
+  
+  void setDirectionY(int i) {
+    directionY = i;
   }
   
 }

@@ -1,3 +1,7 @@
+/*=============================================
+  class Ghost -- A subclass of Character!
+  =============================================*/
+
 class Ghost extends Character {
  
   int startx;
@@ -5,8 +9,7 @@ class Ghost extends Character {
   int targetx;
   int targety;
   
-  
-  Ghost(int c) {
+  Ghost( color c ) {
     super();
     setColor(c);
     // startx = ? xpos=
@@ -15,14 +18,17 @@ class Ghost extends Character {
   }
   
   void move() {
+    
     if (isDead()) {
       // target(startx,starty);
     }
-      else {
-        if(targetx >= xpos){
+    
+      else { //use wall() method for this?
+        if( targetx >= xpos ) {
            //if(up != wall){...}
            //else if(... !wall){}
-        else if{
+        }
+        else {
            //if(up != wall){...}
            //else if(... !wall){}
         }
@@ -30,13 +36,19 @@ class Ghost extends Character {
       //if ( (x == startx) && 
   }
   
-  int[] shortestmove(){
+  void wall() {
+  }
+  
+  /*
+  int[] shortestmove() {
      //helper find all paths
      //return x/y cord to move
   }
+  */
   
   void target(int x, int y) {
       targetx = x;
       targety = y;
   }
+  
 }
