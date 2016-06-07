@@ -6,7 +6,7 @@ class Pacman extends Character {
   
   Pacman() {
     super();
-    col = color(255,204,0); //what is yellow?
+    col = color(255,204,0);
     xpos = 0; //figure out later
     ypos = 0; //ditto
   }
