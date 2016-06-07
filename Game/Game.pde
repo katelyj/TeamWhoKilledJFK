@@ -13,9 +13,13 @@ void setup() {
     background(0);
   }
   
-  void draw() {
+  void draw() { //testing for now
     clear();
-    pac.display();
+    MapTile m = new MapTile(true,50,50);
+    MapTile o = new MapTile(false,100,100);
+    m.draw();
+    o.draw();
+    pac.draw();
     pac.move();
   }
   

@@ -18,10 +18,12 @@ abstract class Character {
   
   Character() {
       state = ALIVE;
-      col = color(0,0,0); //FIGURE THIS OUT LATER
-      speed = 1; //DITTO
+      col = color(0,0,0);
+      speed = 1;
       directionX = 1;
       directionY = 0;
+      xpos = 0;
+      ypos = 0;
   }
   
   abstract void move();
@@ -40,7 +42,7 @@ abstract class Character {
      state = e;
   }
   
-  void display() {
+  void draw() {
     stroke(col);
     fill(col);
     ellipse(xpos,ypos,20,20);
