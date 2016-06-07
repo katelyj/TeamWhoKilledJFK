@@ -39,12 +39,69 @@ class Ghost extends Character {
   void wall() {
   }
   
-  /*
-  int[] shortestmove() {
+  
+  void setMove(MapTile[][] a) {
      //helper find all paths
      //return x/y cord to move
+     int up; 
+     int down;
+     int left;
+     int right;
+     if (xpos > 0) {
+      left = xpos - 1;  
+     }
+     if (xpos < a[0].length) {
+      right = xpos + 1;  
+     }
+     if (ypos > 0) {
+      up = ypos - 1;  
+     }
+     if (ypos > a.length) {
+      down = ypos + 1;  
+     }
+     if (targetx < xpos) {
+      if (xpos > 0 && ! a[left][ypos].isWall()) {
+        xpos--; //left
+      }
+      else {
+       if (targety < ypos) {
+        if (ypos > 0 && ! a[xpos][up].isWall()) {
+         ypos--; //up
+        }
+        else {
+          if (xpos < a[0].length && ! a[right][ypos].isWall()) {
+            xpos++; //right
+          }
+          else {
+           ypos++; //down 
+          }
+        }
+       }
+      }
+     }
+     else {
+       if (xpos < a[0].length && ! a[right][ypos].isWall()) {
+            xpos++; //right
+          }
+      else {
+       if (targety < ypos) {
+        if (ypos > 0 && ! a[xpos][up].isWall()) {
+         ypos--; //up
+        }
+        else {
+          if (xpos > 0 && ! a[left][ypos].isWall()) {
+        xpos--; //left
+         }
+          else {
+           ypos++; //down 
+          }
+        }
+       }
+      }
+     }
+     
   }
-  */
+  
   
   void target(int x, int y) {
       targetx = x;
