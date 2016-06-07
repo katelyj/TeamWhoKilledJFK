@@ -25,4 +25,6 @@ We made an updated plan, and Kate created the file for all our needed classes.
 6/6/16
 In class, Shamaul and Ziyan worked on Ghost while Kate worked on Pacman.
 At home, Kate worked on making the Pacman able to move, along with other basic character stuff.
-She got the colors to work, too.
+
+6/7/16
+In class, Shamaul and Ziyan worked more on the moving algorithm for Ghost while Kate created and worked on MapTile.
