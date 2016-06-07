@@ -1,6 +1,5 @@
 /*=============================================
   class MapTile -- The tiles of the map!
-  Required classes: Map
   =============================================*/
   
 class MapTile {
@@ -30,6 +29,14 @@ class MapTile {
     hasDot = false;
   }
   
+  Dot getDot() {
+    return dot;
+  }
+  
+  boolean hasDot() {
+    return hasDot;
+  }
+  
   boolean isWall() {
     return isWall;
   }
@@ -39,7 +46,5 @@ class MapTile {
     fill(col);
     rect(xpos,ypos,20,20);
   }
-  
-  
   
 }
