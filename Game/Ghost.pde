@@ -25,11 +25,11 @@ class Ghost extends Character {
     
       else { //use wall() method for this?
         if( targetx >= xpos ) {
-           //if(up != wall){...}
+           //if(ypos-1 != wall){...}
            //else if(... !wall){}
         }
         else {
-           //if(up != wall){...}
+           //if(ypos-1 != wall){...}
            //else if(... !wall){}
         }
       }
@@ -39,53 +39,50 @@ class Ghost extends Character {
   void wall() {
   }
   
-  /*
+  
   void setMove(MapTile[][] a) {
      //helper find all paths
      //return x/y cord to move
-     int up; 
-     int down;
-     int left;
-     int right;
-     if (xpos > 0) {
-      left = xpos - 1;  
-     }
-     if (xpos < a[0].length) {
-      right = xpos + 1;  
-     }
-     if (ypos > 0) {
-      up = ypos - 1;  
-     }
-     if (ypos > a.length) {
-      down = ypos + 1;  
-     }
+
      if (targetx < xpos) {
-      if (xpos > 0 && ! a[left][ypos].isWall()) {
+      if (xpos > 0 && ! a[xpos-1][ypos].isWall()) {
         xpos--; //left
       }
       else {
        if (targety < ypos) {
-        if (ypos > 0 && ! a[xpos][up].isWall()) {
+        if (ypos > 0 && ! a[xpos][ypos-1].isWall()) {
          ypos--; //up
         }
         else {
-          if (xpos < a[0].length && ! a[right][ypos].isWall()) {
+          if (xpos < a[0].length && ! a[xpos+1][ypos].isWall()) {
             xpos++; //right
           }
           else {
-           ypos++; //down 
+           ypos++; //down
           }
         }
        }
+       else{
+         if (ypos < a.length && ! a[xpos][ypos+1].isWall()) {
+         ypos++; //down
+        }
+        else {
+          if (xpos < a[0].length && ! a[xpos+1][ypos].isWall()) {
+            xpos++; //right
+          }
+          else {
+           ypos--; //up
+          }
+        }
       }
      }
      else {
-       if (xpos < a[0].length && ! a[right][ypos].isWall()) {
+       if (xpos < a[0].length && ! a[xpos+1][ypos].isWall()) {
             xpos++; //right
           }
       else {
        if (targety < ypos) {
-        if (ypos > 0 && ! a[xpos][up].isWall()) {
+        if (ypos > 0 && ! a[xpos][ypos-1].isWall()) {
          ypos--; //up
         }
         else {
@@ -100,7 +97,7 @@ class Ghost extends Character {
       }
      }
      
-  }*/
+  }/**/
   
   
   void target(int x, int y) {
