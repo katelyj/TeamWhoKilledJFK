@@ -5,15 +5,18 @@
 class MapTile {
   
   boolean isWall;
+  boolean isVoid;
   boolean hasDot;
   Dot dot;
   color col;
   int xpos;
   int ypos;
   
-  MapTile(boolean w, int x, int y) {
+  MapTile(boolean w, boolean v, int x, int y) {
     isWall = w;
-    if (isWall()) { col = color(48,109,206); }
+    isVoid = v;
+    if (isWall()) { col = color(50,50,200); }
+    else if (isVoid() ) { col = color(100,100,200); }
     else { col = color(0); }
     xpos = x;
     ypos = y;
@@ -39,6 +42,10 @@ class MapTile {
   
   boolean isWall() {
     return isWall;
+  }
+  
+  boolean isVoid() {
+    return isVoid;
   }
   
   void draw() {
