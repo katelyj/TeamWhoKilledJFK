@@ -17,7 +17,7 @@ class Ghost extends Character {
     // set directionx & y
   }
   
-  void move() {
+  void move() {/*
     
     if (isDead()) {
       // target(startx,starty);
@@ -33,13 +33,13 @@ class Ghost extends Character {
            //else if(... !wall){}
         }
       }
-      //if ( (x == startx) && 
+      //if ( (x == startx) && */
   }
   
   void wall() {
   }
   
-  
+  /*
   void setMove(MapTile[][] a) {
      //helper find all paths
      //return x/y cord to move
@@ -100,7 +100,7 @@ class Ghost extends Character {
       }
      }
      
-  }
+  }*/
   
   
   void target(int x, int y) {

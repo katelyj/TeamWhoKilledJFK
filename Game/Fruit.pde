@@ -4,6 +4,8 @@
   
 class Fruit extends Dot {
   
-  
+  Fruit(int p) {
+    super(p);
+  }
   
 }
