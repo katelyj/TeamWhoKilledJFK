@@ -14,7 +14,7 @@ abstract class Dot {
   Dot(int p, int x, int y) {
     points = p;
     col = color(0,0,0);
-    eaten = false;
+    eaten = true;
     xpos = x;
     ypos = y;
   }

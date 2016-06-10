@@ -15,7 +15,7 @@ class MapTile {
     type = t;
     xpos = x;
     ypos = y;
-    if ( type == 1 ) { //void space
+    if ( type <= 1 ) { //void space
       col = color(100,100,200); 
     }
     else if ( type == 2 ) { //wall
@@ -45,7 +45,7 @@ class MapTile {
   void draw() {
     stroke(col);
     fill(col);
-    rect(xpos,ypos,20,20);
+    rect(xpos,ypos,30,30);
     if (hasDot()) { dot.draw(); }
   }
   

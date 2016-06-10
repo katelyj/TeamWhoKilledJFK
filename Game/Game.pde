@@ -9,16 +9,14 @@ Team Who Killed JFKate -- FINAL PROJECT! */
 Pacman pac = new Pacman();
 
 void setup() {
-    size(600,600);
+    size(630,630);
     background(0);
   }
   
   void draw() { //testing for now
     clear();
-    MapTile m = new MapTile(1,50,50);
-    MapTile o = new MapTile(2,100,100);
+    Map m = new Map();
     m.draw();
-    o.draw();
     pac.draw();
     pac.move();
   }

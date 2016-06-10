@@ -45,7 +45,7 @@ abstract class Character {
   void draw() {
     stroke(col);
     fill(col);
-    ellipse(xpos,ypos,20,20);
+    ellipse(xpos,ypos,30,30);
   }
   
 }
