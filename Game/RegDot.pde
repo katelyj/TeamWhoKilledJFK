@@ -4,8 +4,8 @@
   
 class RegDot extends Dot {
   
-  RegDot(int p) {
-    super(p);
+  RegDot(int x, int y) {
+    super(100,x,y);
   }
   
 }

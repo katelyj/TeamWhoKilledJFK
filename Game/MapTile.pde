@@ -1,57 +1,52 @@
 /*=============================================
   class MapTile -- The tiles of the map!
+  subclasses: Dotted
   =============================================*/
   
 class MapTile {
   
-  boolean isWall;
-  boolean isVoid;
-  boolean hasDot;
-  Dot dot;
+  int type;
   color col;
   int xpos;
   int ypos;
+  Dot dot;
   
-  MapTile(boolean w, boolean v, int x, int y) {
-    isWall = w;
-    isVoid = v;
-    if (isWall()) { col = color(50,50,200); }
-    else if (isVoid() ) { col = color(100,100,200); }
-    else { col = color(0); }
+  MapTile(int t, int x, int y) {
+    type = t;
     xpos = x;
     ypos = y;
+    if ( type == 1 ) { //void space
+      col = color(100,100,200); 
+    }
+    else if ( type == 2 ) { //wall
+      col = color(50,50,200); 
+    }
+    else { //path (3-6)
+      col = color(0);
+      if ( hasDot() ) {
+        if ( type == 3 ) { dot = new RegDot(x,y); }
+        else { dot = new GlowyDot(x,y); }
+      }
+    }
   }
   
-  void setDot(Dot d) {
-    dot = d;
-    hasDot = true;
+  boolean isPath() {
+    return type >= 3;
   }
   
-  void remDot() {
-    dot = null;
-    hasDot = false;
+  boolean hasDot() {
+    return type == 3 || type == 4;
   }
   
   Dot getDot() {
     return dot;
   }
   
-  boolean hasDot() {
-    return hasDot;
-  }
-  
-  boolean isWall() {
-    return isWall;
-  }
-  
-  boolean isVoid() {
-    return isVoid;
-  }
-  
   void draw() {
     stroke(col);
     fill(col);
     rect(xpos,ypos,20,20);
+    if (hasDot()) { dot.draw(); }
   }
   
 }

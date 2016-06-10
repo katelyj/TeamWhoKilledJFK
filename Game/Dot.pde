@@ -7,18 +7,28 @@ abstract class Dot {
   
   int points;
   color col;
+  boolean eaten;
   int xpos;
   int ypos;
   
-  Dot(int p) { //IMPLEMENT POS
+  Dot(int p, int x, int y) {
     points = p;
     col = color(0,0,0);
+    eaten = false;
+    xpos = x;
+    ypos = y;
+  }
+  
+  boolean isEaten() {
+    return eaten;
   }
   
   void draw() {
-    stroke(col);
-    fill(col);
-    ellipse(xpos,ypos,20,20); //MAKE SMALLER
+    if ( ! isEaten() ) {
+      stroke(col);
+      fill(col);
+      ellipse(xpos,ypos,10,10);
+    }
   }
   
 }

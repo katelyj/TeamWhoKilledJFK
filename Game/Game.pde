@@ -15,8 +15,8 @@ void setup() {
   
   void draw() { //testing for now
     clear();
-    MapTile m = new MapTile(true,false,50,50);
-    MapTile o = new MapTile(false,true,100,100);
+    MapTile m = new MapTile(1,50,50);
+    MapTile o = new MapTile(2,100,100);
     m.draw();
     o.draw();
     pac.draw();

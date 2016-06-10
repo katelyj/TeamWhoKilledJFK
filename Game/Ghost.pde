@@ -40,7 +40,7 @@ class Ghost extends Character {
   }
   
   
-  void setMove(MapTile[][] a) {
+  void setMove(MapTile[][] a) { /*
      //helper find all paths
      //return x/y cord to move
 
@@ -62,7 +62,7 @@ class Ghost extends Character {
           }
         }
        }
-       else{
+       else {
          if (ypos < a.length && ! a[xpos][ypos+1].isWall()) {
          ypos++; //down
         }
@@ -75,7 +75,8 @@ class Ghost extends Character {
           }
         }
       }
-     }
+      }
+      }
      else {
        if (xpos < a[0].length && ! a[xpos+1][ypos].isWall()) {
             xpos++; //right
@@ -96,7 +97,7 @@ class Ghost extends Character {
        }
       }
      }
-     
+     */
   }/**/
   
   

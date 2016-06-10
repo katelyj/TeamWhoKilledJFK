@@ -4,8 +4,8 @@
   
 class GlowyDot extends Dot {
   
-  GlowyDot(int p) {
-    super(p);
+  GlowyDot(int x, int y) {
+    super(100,x,y);
   }
   
 }
