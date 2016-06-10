@@ -5,6 +5,7 @@
 class Map {
   
   MapTile[][] map = new MapTile[21][21];
+  MapTile start;
   int mapLevel;
   int[][] map1 = {{1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1},
                   {1,2,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3,2,1},
@@ -50,15 +51,30 @@ class Map {
   
   void setMap(int[][] m) {
     for ( int x = 0 ; x < m.length ; x++ ) {
+      
       for ( int y = 0 ; y < m[x].length ; y++ ) {
+        
         map[x][y] = new MapTile(m[x][y],y*30,x*30);
+        if ( m[x][y] == 6 ) {
+          start = map[x][y];
+        }
+        
       }
+      
     }
   }
   
   void nextMap() {
     mapLevel += 1;
     setMap();
+  }
+  
+  MapTile getTile(int x, int y) {
+    return map[y/30][x/30];
+  }
+  
+  int[][] getStart(MapTile m) {
+    return;
   }
   
   void draw() {

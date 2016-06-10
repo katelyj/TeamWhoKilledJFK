@@ -4,8 +4,11 @@
 
 class Pacman extends Character {
   
+  Map m;
+  
   Pacman() {
     super();
+    m = new Map();
     col = color(255,204,0);
     xpos = 0; //figure out later
     ypos = 0; //ditto
@@ -18,6 +21,12 @@ class Pacman extends Character {
   }
   
   void wall() {
+    
+    if ( ! m.getTile(xpos,ypos).isPath() ) {
+      xpos = xpos-speed*directionX;
+      ypos = ypos-speed*directionY;
+    }
+    
     if ( xpos > width ) {
       xpos = xpos-speed*directionX;
     }
@@ -33,6 +42,7 @@ class Pacman extends Character {
     else {
       return;
     }
+    
   }
   
   void setDirectionX(int i) {
@@ -41,6 +51,11 @@ class Pacman extends Character {
   
   void setDirectionY(int i) {
     directionY = i;
+  }
+  
+  void draw() {
+    m.draw();
+    super.draw();
   }
   
 }

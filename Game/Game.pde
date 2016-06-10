@@ -15,8 +15,6 @@ void setup() {
   
   void draw() { //testing for now
     clear();
-    Map m = new Map();
-    m.draw();
     pac.draw();
     pac.move();
   }
