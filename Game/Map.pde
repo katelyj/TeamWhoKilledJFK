@@ -1,15 +1,15 @@
 /*=============================================
   class Map -- The map of the game!
-  Required classes: MapTile
+  Required classes: MapTile, Stack, ALStack
   =============================================*/
   
 class Map {
   
   ArrayList<MapTile> map = new ArrayList<MapTile>(); //should this be an arraylist tho?
-  final int[] MAP1 = {1,2,3};
-  final int[] MAP2 = {1,2,3};
-  final int[] MAP3 = {1,2,3};
   int mapLevel;
+  Stack map1;
+  Stack map2;
+  Stack map3;
   
   Map() {
     mapLevel = 1;
@@ -18,18 +18,22 @@ class Map {
   void nextMap() {
     mapLevel += 1;
     if ( mapLevel == 2 ) { 
-      setMap(MAP2);
+      setMap(map1);
     }
     else if ( mapLevel == 3 ) { 
-      setMap(MAP3);
+      setMap(map2);
     }
     else {
       mapLevel = 1;
-      setMap(MAP1);
+      setMap(map3);
     }
   }
   
-  void setMap(int[] m) {
+  void setMap(Stack m) {
+  }
+  
+  void makeMap1() {
+    
   }
   
 }

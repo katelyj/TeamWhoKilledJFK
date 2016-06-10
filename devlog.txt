@@ -28,3 +28,6 @@ At home, Kate worked on making the Pacman able to move, along with other basic c
 
 6/7/16
 In class, Shamaul and Ziyan worked more on the moving algorithm for Ghost while Kate created and worked on MapTile.
+
+6/9/16
+Kate made great progress with MapTile and Map, introducing the usage of Stacks in this project.

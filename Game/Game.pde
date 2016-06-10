@@ -3,7 +3,7 @@ Team Who Killed JFKate -- FINAL PROJECT! */
 
 /*=============================================
   class Game -- The main class!
-  Required classes: Map, MapTile, Character, Ghost, Pacman, Dot, Fruit, GlowyDot, RegDot
+  Required classes: Map, MapTile, Character, Ghost, Pacman, Dot, Fruit, GlowyDot, RegDot, Stack, ALStack
   =============================================*/
 
 Pacman pac = new Pacman();
