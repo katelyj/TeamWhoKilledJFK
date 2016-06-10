@@ -38,7 +38,7 @@ class Ghost extends Character {
        ellipse(xpos,ypos,30,30);
   }  
   
-  void move() {
+  void move() { /*
     if(state == DEAD){
       targetx = startx;
       targety= starty;
@@ -55,12 +55,12 @@ class Ghost extends Character {
       setMove(m);
       wall();
       draw();
-    }
+    } */
   }
   
   
   
-  void wall() {
+  void wall() { /*
     
     if ( ! m.getTile(xpos,ypos).isPath() ) {
       xpos = xpos-speed*directionX;
@@ -81,7 +81,7 @@ class Ghost extends Character {
     }
     else {
       return;
-    }
+    } */
   }
   
   

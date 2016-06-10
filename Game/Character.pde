@@ -19,7 +19,7 @@ abstract class Character {
   Character() {
       state = ALIVE;
       col = color(0,0,0);
-      speed = 1;
+      speed = 2;
       directionX = 1;
       directionY = 0;
       xpos = 0;
