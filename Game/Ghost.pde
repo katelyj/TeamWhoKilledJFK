@@ -8,35 +8,80 @@ class Ghost extends Character {
   int starty;
   int targetx;
   int targety;
+  color col;
+  Pacman p;
+  MapTile[][] m;
   
-  Ghost( color c ) {
+  Ghost( color c, MapTile[][] a, Pacman z ) {
     super();
     setColor(c);
-    // startx = ? xpos=
-    // starty = ? ypos=
-    // set directionx & y
+    m = a;
+    col = c;
+    p = z;
+    if(c == color(0,255,255)){
+       startx = 9;
+       starty = 9;
+    }
+    if(c == color(255,192,203)){
+       startx = 9;
+       starty = 10;
+    }
+    if(c == color(255,0,0)){
+       startx = 9;
+       starty = 11;
+    }
   }
   
-  void move() {/*
-    
-    if (isDead()) {
-      // target(startx,starty);
-    }
-    
-      else { //use wall() method for this?
-        if( targetx >= xpos ) {
-           //if(ypos-1 != wall){...}
-           //else if(... !wall){}
-        }
-        else {
-           //if(ypos-1 != wall){...}
-           //else if(... !wall){}
-        }
+  void draw(){
+       stroke(col);
+       fill(col);
+       ellipse(xpos,ypos,30,30);
+  }  
+  
+  void move() {
+    if(state == DEAD){
+      targetx = startx;
+      targety= starty;
+      setMove(m);
+      wall();
+      if(startx == xpos && starty = ypos){
+        this.changeState(ALIVE);
+        targetx = p.getX();
+        targety = p.getY();
       }
-      //if ( (x == startx) && */
+      draw();
+    }
+    else{
+      setMove(m);
+      wall();
+      draw();
+    }
   }
+  
+  
   
   void wall() {
+    
+    if ( ! m.getTile(xpos,ypos).isPath() ) {
+      xpos = xpos-speed*directionX;
+      ypos = ypos-speed*directionY;
+    }
+    
+    if ( xpos > width ) {
+      xpos = xpos-speed*directionX;
+    }
+    else if ( xpos < 0 ) {
+      xpos = xpos-speed*directionX;
+    }
+    else if ( ypos > height ) {
+      ypos = ypos-speed*directionY;
+    }
+    else if ( ypos < 0 ) {
+      ypos = ypos-speed*directionY;
+    }
+    else {
+      return;
+    }
   }
   
   
@@ -96,9 +141,8 @@ class Ghost extends Character {
         }
        }
       }
-     }
-     */
-  }/**/
+     }*/
+  }
   
   
   void target(int x, int y) {
