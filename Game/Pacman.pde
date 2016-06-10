@@ -10,8 +10,8 @@ class Pacman extends Character {
     super();
     m = new Map();
     col = color(255,204,0);
-    xpos = 0; //figure out later
-    ypos = 0; //ditto
+    xpos = m.getStartX();
+    ypos = m.getStartY();
   }
   
   void move() {
@@ -22,25 +22,23 @@ class Pacman extends Character {
   
   void wall() {
     
-    if ( ! m.getTile(xpos,ypos).isPath() ) {
+    if ( xpos >= width ) {
       xpos = xpos-speed*directionX;
+    }
+    else if ( xpos <= 0 ) {
+      xpos = xpos-speed*directionX;
+    }
+    else if ( ypos >= height ) {
       ypos = ypos-speed*directionY;
     }
-    
-    if ( xpos > width ) {
-      xpos = xpos-speed*directionX;
-    }
-    else if ( xpos < 0 ) {
-      xpos = xpos-speed*directionX;
-    }
-    else if ( ypos > height ) {
-      ypos = ypos-speed*directionY;
-    }
-    else if ( ypos < 0 ) {
+    else if ( ypos <= 0 ) {
       ypos = ypos-speed*directionY;
     }
     else {
-      return;
+      if ( ! m.getTile(xpos,ypos).isPath() ) {
+        xpos = xpos-speed*directionX;
+        ypos = ypos-speed*directionY;
+      }
     }
     
   }

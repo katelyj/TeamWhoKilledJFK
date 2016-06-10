@@ -5,7 +5,9 @@
   
 class MapTile {
   
-  int type;
+  int type; //TYPELIST: ghost spawn = 0, void = 1, wall = 2
+            //dotted path = 3, glowy dotted path = 4, nondotted path = 5
+            //pacman spawn = 6, warp space = 7
   color col;
   int xpos;
   int ypos;
@@ -25,7 +27,7 @@ class MapTile {
       col = color(0);
       if ( hasDot() ) {
         if ( type == 3 ) { dot = new RegDot(x,y); }
-        else { dot = new GlowyDot(x,y); }
+        else if ( type == 4 ) { dot = new GlowyDot(x,y); }
       }
     }
   }
@@ -40,6 +42,14 @@ class MapTile {
   
   Dot getDot() {
     return dot;
+  }
+  
+  int getX() {
+    return xpos;
+  }
+  
+  int getY() {
+    return ypos;
   }
   
   void draw() {

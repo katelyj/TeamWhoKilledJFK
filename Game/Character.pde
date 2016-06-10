@@ -42,6 +42,14 @@ abstract class Character {
      state = e;
   }
   
+  int getX() {
+    return xpos;
+  }
+  
+  int getY() {
+    return ypos;
+  }
+  
   void draw() {
     stroke(col);
     fill(col);
