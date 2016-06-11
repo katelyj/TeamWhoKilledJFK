@@ -35,16 +35,16 @@ class Ghost extends Character {
   void draw(){
        stroke(col);
        fill(col);
-       ellipse(xpos,ypos,30,30);
+       ellipse(xpos*30,ypos*30,30,30);
   }  
   
-  void move() { /*
+  void move() { 
     if(state == DEAD){
       targetx = startx;
       targety= starty;
       setMove(m);
       wall();
-      if(startx == xpos && starty = ypos){
+      if(startx == xpos && starty == ypos){
         this.changeState(ALIVE);
         targetx = p.getX();
         targety = p.getY();
@@ -55,14 +55,14 @@ class Ghost extends Character {
       setMove(m);
       wall();
       draw();
-    } */
+    } 
   }
   
   
   
-  void wall() { /*
+  void wall() { 
     
-    if ( ! m.getTile(xpos,ypos).isPath() ) {
+    if ( ! m[xpos][ypos].isPath() ) {
       xpos = xpos-speed*directionX;
       ypos = ypos-speed*directionY;
     }
@@ -81,25 +81,25 @@ class Ghost extends Character {
     }
     else {
       return;
-    } */
+    } 
   }
   
   
-  void setMove(MapTile[][] a) { /*
+  void setMove(MapTile[][] a) { 
      //helper find all paths
      //return x/y cord to move
 
      if (targetx < xpos) {
-      if (xpos > 0 && ! a[xpos-1][ypos].isWall()) {
+      if (xpos > 0 && a[xpos-1][ypos].isPath()) {
         xpos--; //left
       }
       else {
        if (targety < ypos) {
-        if (ypos > 0 && ! a[xpos][ypos-1].isWall()) {
+        if (ypos > 0 && a[xpos][ypos-1].isPath()) {
          ypos--; //up
         }
         else {
-          if (xpos < a[0].length && ! a[xpos+1][ypos].isWall()) {
+          if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
             xpos++; //right
           }
           else {
@@ -108,11 +108,11 @@ class Ghost extends Character {
         }
        }
        else {
-         if (ypos < a.length && ! a[xpos][ypos+1].isWall()) {
+         if (ypos < a.length && a[xpos][ypos+1].isPath()) {
          ypos++; //down
         }
         else {
-          if (xpos < a[0].length && ! a[xpos+1][ypos].isWall()) {
+          if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
             xpos++; //right
           }
           else {
@@ -123,16 +123,16 @@ class Ghost extends Character {
       }
       }
      else {
-       if (xpos < a[0].length && ! a[xpos+1][ypos].isWall()) {
+       if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
             xpos++; //right
           }
       else {
        if (targety < ypos) {
-        if (ypos > 0 && ! a[xpos][ypos-1].isWall()) {
+        if (ypos > 0 && a[xpos][ypos-1].isPath()) {
          ypos--; //up
         }
         else {
-          if (xpos > 0 && ! a[left][ypos].isWall()) {
+          if (xpos > 0 && a[xpos-1][ypos].isPath()) {
         xpos--; //left
          }
           else {
@@ -141,7 +141,7 @@ class Ghost extends Character {
         }
        }
       }
-     }*/
+     }
   }
   
   
