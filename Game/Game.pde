@@ -20,11 +20,10 @@ void setup() {
   
   void draw() {
   
-    while (! gameOver()) {
       clear();
       pac.draw();
+      info();
       pac.move();
-    }
     
   }
   
@@ -62,4 +61,23 @@ void setup() {
   void levelUp() {
     //speed --> increases
     //map --> next?
+  }
+  
+  void info() {
+    
+    //points
+    textSize(25);
+    fill(255);
+    text("Points: " + pac.getPoints(),10,630);
+    
+    //lives
+    fill(255,204,0);
+    int n = 0;
+    int x = 0;
+    while ( n < pac.getLives() ) {
+      ellipse(200+x,620,15,15);
+      x += 20;
+      n += 1;
+    }
+    
   }

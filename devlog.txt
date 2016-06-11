@@ -35,3 +35,6 @@ Kate made great progress with MapTile and Map, introducing the usage of Stacks i
 6/10/16
 Shamaul and Ziyan continued the ghosts, while Kate made more progress with Map, MapTile, Pacman, and Dot.
 This project now resembles Pacman a bit more, as there are dots that can be eaten on the board.
+
+6/11/16
+Kate implemented points and lives.

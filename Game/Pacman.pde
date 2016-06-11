@@ -6,11 +6,13 @@ class Pacman extends Character {
   
   Map m;
   int points;
+  int lives;
   
   Pacman() {
     super();
     m = new Map();
     points = 0;
+    lives = 3;
     col = color(255,204,0);
     xpos = m.getStart().getX();
     ypos = m.getStart().getY();
@@ -80,6 +82,14 @@ class Pacman extends Character {
   
   Map getMap() {
     return m;
+  }
+  
+  int getPoints() {
+    return points;
+  }
+  
+  int getLives() {
+    return lives;
   }
   
   void draw() {
