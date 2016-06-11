@@ -1,0 +1,14 @@
+TO DO LIST!
+
+Soon:
+
+- GHOSTS!!!
+- Further implement points
+- Gameflow (starting, ending, leveling up)
+- Time (with glowy dots)
+- Eating ghosts
+
+In the future:
+- Fruits?
+- High scores!
+- Stacks to store ghosts
