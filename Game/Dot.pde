@@ -6,6 +6,7 @@
 abstract class Dot {
   
   int points;
+  int radius;
   color col;
   boolean eaten;
   int xpos;
@@ -13,21 +14,34 @@ abstract class Dot {
   
   Dot(int p, int x, int y) {
     points = p;
-    col = color(0,0,0);
-    eaten = true;
+    radius = 10;
+    col = color(255);
+    eaten = false;
     xpos = x;
     ypos = y;
+  }
+  
+  void eaten() {
+    eaten = true;
+  }
+  
+  void notEaten() {
+    eaten = false;
   }
   
   boolean isEaten() {
     return eaten;
   }
   
+  int getPoints() {
+    return points;
+  }
+  
   void draw() {
     if ( ! isEaten() ) {
       stroke(col);
       fill(col);
-      ellipse(xpos,ypos,10,10);
+      ellipse(xpos,ypos,radius,radius);
     }
   }
   

@@ -5,7 +5,7 @@
 class RegDot extends Dot {
   
   RegDot(int x, int y) {
-    super(100,x,y);
+    super(10,x,y);
   }
   
 }

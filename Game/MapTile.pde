@@ -23,17 +23,26 @@ class MapTile {
     else if ( type == 2 ) { //wall
       col = color(50,50,200); 
     }
+    else if ( type == 7 ) { //warp space
+      col = color(250,100,200);
+    }
     else { //path (3-6)
       col = color(0);
+      
       if ( hasDot() ) {
-        if ( type == 3 ) { dot = new RegDot(x,y); }
-        else if ( type == 4 ) { dot = new GlowyDot(x,y); }
+        if ( type == 3 ) { dot = new RegDot(x+10,y+10); }
+        else if ( type == 4 ) { dot = new GlowyDot(x+10,y+10); }
       }
+      
     }
   }
   
   boolean isPath() {
     return type >= 3;
+  }
+  
+  boolean isWarp() {
+    return type == 7;
   }
   
   boolean hasDot() {

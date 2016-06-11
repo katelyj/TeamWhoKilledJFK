@@ -31,3 +31,7 @@ In class, Shamaul and Ziyan worked more on the moving algorithm for Ghost while 
 
 6/9/16
 Kate made great progress with MapTile and Map, introducing the usage of Stacks in this project.
+
+6/10/16
+Shamaul and Ziyan continued the ghosts, while Kate made more progress with Map, MapTile, Pacman, and Dot.
+This project now resembles Pacman a bit more, as there are dots that can be eaten on the board.

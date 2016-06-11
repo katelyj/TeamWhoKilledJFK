@@ -6,7 +6,10 @@ class Map {
   
   MapTile[][] map = new MapTile[21][21];
   MapTile start;
+  MapTile warp1;
+  MapTile warp2;
   int mapLevel;
+  int dotCount;
   int[][] map1 = {{1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1},
                   {1,2,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3,2,1},
                   {1,2,4,2,2,3,2,2,2,3,2,3,2,2,2,3,2,2,4,2,1},
@@ -28,11 +31,12 @@ class Map {
                   {1,2,3,2,2,2,2,2,2,3,2,3,2,2,2,2,2,2,3,2,1},
                   {1,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,1},
                   {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1}};
-   int[][] map2;
-   int[][] map3;
+   int[][] map2 = map1;
+   int[][] map3 = map1;
   
   Map() {
     mapLevel = 1;
+    dotCount = 0;
     setMap();
   }
   
@@ -55,8 +59,22 @@ class Map {
       for ( int y = 0 ; y < m[x].length ; y++ ) {
         
         map[x][y] = new MapTile(m[x][y],y*30,x*30);
+        
+        if ( m[x][y] == 3 || m[x][y] == 4 ) {
+          dotCount += 1;
+        }
+        
         if ( m[x][y] == 6 ) {
           start = map[x][y];
+        }
+        
+        else if ( m[x][y] == 7 ) {
+          if ( warp1 == null ) {
+            warp1 = map[x][y];
+          }
+          else {
+            warp2 = map[x][y];
+          }
         }
         
       }
@@ -69,16 +87,28 @@ class Map {
     setMap();
   }
   
+  void setDotCount(int d) {
+    dotCount = d;
+  }
+  
+  int getDotCount() {
+    return dotCount;
+  }
+  
   MapTile getTile(int x, int y) {
     return map[y/30][x/30];
   }
   
-  int getStartX() {
-    return start.getX();
+  MapTile getStart() {
+    return start;
   }
   
-  int getStartY() {
-    return start.getY();
+  MapTile getWarp1() {
+    return warp1;
+  }
+  
+  MapTile getWarp2() {
+    return warp2;
   }
   
   void draw() {

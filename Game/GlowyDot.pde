@@ -5,7 +5,9 @@
 class GlowyDot extends Dot {
   
   GlowyDot(int x, int y) {
-    super(100,x,y);
+    super(50,x,y);
+    col = color(100,200,200);
+    radius = 15;
   }
   
 }

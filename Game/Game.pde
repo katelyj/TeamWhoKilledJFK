@@ -7,16 +7,25 @@ Team Who Killed JFKate -- FINAL PROJECT! */
   =============================================*/
 
 Pacman pac = new Pacman();
+int gameState = START;
+
+final static int START = 0;
+final static int PLAYING = 1;
+final static int GAMEOVER = 2;
 
 void setup() {
     size(630,630);
     background(0);
   }
   
-  void draw() { //testing for now
-    clear();
-    pac.draw();
-    pac.move();
+  void draw() {
+  
+    while (! gameOver()) {
+      clear();
+      pac.draw();
+      pac.move();
+    }
+    
   }
   
   void keyPressed() {
@@ -42,4 +51,15 @@ void setup() {
       
     }
     
+  }
+  
+  boolean gameOver() {
+      boolean r = pac.getMap().getDotCount() == 0 ;
+      if ( r ) { gameState = GAMEOVER; }
+      return r;
+  }
+  
+  void levelUp() {
+    //speed --> increases
+    //map --> next?
   }

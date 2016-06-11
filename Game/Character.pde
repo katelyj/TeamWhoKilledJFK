@@ -11,6 +11,7 @@ abstract class Character {
   color col;
   int speed;
   int state;
+  int radius;
   int directionX;
   int directionY;
   int xpos;
@@ -20,6 +21,7 @@ abstract class Character {
       state = ALIVE;
       col = color(0,0,0);
       speed = 2;
+      radius = 30;
       directionX = 1;
       directionY = 0;
       xpos = 0;
@@ -42,6 +44,10 @@ abstract class Character {
      state = e;
   }
   
+  int getState() {
+    return state;
+  }
+  
   int getX() {
     return xpos;
   }
@@ -53,7 +59,7 @@ abstract class Character {
   void draw() {
     stroke(col);
     fill(col);
-    ellipse(xpos,ypos,30,30);
+    ellipse(xpos,ypos,radius,radius);
   }
   
 }
