@@ -25,10 +25,6 @@ abstract class Dot {
     eaten = true;
   }
   
-  void notEaten() {
-    eaten = false;
-  }
-  
   boolean isEaten() {
     return eaten;
   }

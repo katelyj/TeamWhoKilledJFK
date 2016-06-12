@@ -1,6 +1,5 @@
 /*=============================================
   class GlowyDot -- A subclass of Dot!
-  TODO: powers
   =============================================*/
   
 class GlowyDot extends Dot {

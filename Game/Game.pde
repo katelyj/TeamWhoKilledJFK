@@ -6,15 +6,15 @@ Team Who Killed JFKate -- FINAL PROJECT! */
   Required classes: Map, MapTile, Character, Ghost, Pacman, Dot, Fruit, GlowyDot, RegDot, Stack, ALStack
   =============================================*/
 
+int gameState = START;
 Pacman pac = new Pacman();
-int gameState = PLAYING;
+Ghost a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
+Ghost b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
+Ghost c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
 
 final static int START = 0;
 final static int PLAYING = 1;
 final static int GAMEOVER = 2;
-Ghost a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
-Ghost b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
-Ghost c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
 
 void setup() {
     size(630,630);
@@ -57,6 +57,7 @@ void setup() {
   
   void win() {
     if ( pac.getMap().getDotCount() == 0 ) {
+      //WAIT 3 SECONDS -- HOW???
       levelUp();
     }
   }
@@ -64,6 +65,8 @@ void setup() {
   void levelUp() {
     
     pac.getMap().nextMap();
+    pac.setSpeed(pac.getSpeed()+1);
+    pac.setPointsL(0);
     pac.setX(pac.getMap().getStart().getX());
     pac.setY(pac.getMap().getStart().getY());
     
@@ -77,16 +80,21 @@ void setup() {
   }
   
   void die() {
+    
     if ( ghost() ) {
       pac.changeState(0);
       pac.setLives(pac.getLives()-1);
+      //WAIT 3 SECONDS -- HOW???
+      
       if ( pac.getLives() <= 0 ) {
         gameState = GAMEOVER;
       }
       else {
-        restartLevel();
+        waitScreen();
       }
+      
     }
+    
   }
   
   boolean ghost() {
@@ -94,17 +102,22 @@ void setup() {
     return false;
   }
   
-  void restartLevel() {
-    //pacman just died, so restart the level
-    waitScreen();
-  }
-  
   void gameOver() {
-    //what happens at the end of the game?
+    pac.getMap().draw();
+    textSize(100);
+    fill(255);
+    text("GAMEOVER!",25,315);
+    textSize(50);
+    text("Final Score: " + pac.getPointsO(),130,380);
   }
   
   void waitScreen() {
-    //about to start something new...
+    pac.setX(pac.getMap().getStart().getX());
+    pac.setY(pac.getMap().getStart().getY());
+    pac.draw();
+    info();
+    //WAIT 3 SECONDS -- HOW???
+    gameState = PLAYING;
   }
   
   void keyPressed() {
@@ -137,7 +150,7 @@ void setup() {
     //points
     textSize(25);
     fill(255);
-    text("Points: " + pac.getPoints(),10,630);
+    text("Score: " + pac.getPointsO(),10,630);
     
     //lives
     fill(255,204,0);

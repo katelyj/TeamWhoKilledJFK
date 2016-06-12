@@ -37,5 +37,7 @@ public class ALStack<T> implements Stack<T> {
   }
 
   public boolean isEmpty() { 	return _stack.size() == 0;  }
+  
+  public int getSize() { return _stack.size(); }
 
 }

@@ -5,13 +5,15 @@
 class Pacman extends Character {
   
   Map m;
-  int points;
+  int pointsL; //points per level
+  int pointsO; //points overall
   int lives;
   
   Pacman() {
     super();
     m = new Map();
-    points = 0;
+    pointsL = 0;
+    pointsO = 0;
     lives = 3;
     col = color(255,204,0);
     xpos = m.getStart().getX();
@@ -26,16 +28,11 @@ class Pacman extends Character {
     warp();
     wall();
     die();
+    eat();
+    spawnFruit();
     
-    if ( m.getTile(xpos,ypos).hasDot() ) {
-      if ( ! m.getTile(xpos,ypos).getDot().isEaten() ) {
-        points += m.getTile(xpos,ypos).getDot().getPoints();
-        m.getTile(xpos,ypos).getDot().eaten();
-        m.setDotCount(m.getDotCount()-1);
-      }
-    }
-    
-    if ( points == 10000 ) {
+    //checking for extra life
+    if ( pointsO == 10000 ) {
       lives += 1;
     }
     
@@ -77,6 +74,51 @@ class Pacman extends Character {
     
   }
   
+  void spawnFruit() {
+
+    if ( ! m.getFruitSpawn().hasDot() ) {
+      if ( pointsL > 500 ) {
+    
+        if ( pointsL > 1500 ) {
+          if ( ! m.getFruit().isEmpty() ) {
+            m.getFruitSpawn().setFruited(true);
+            m.getFruitSpawn().setDot(m.getFruit().pop());
+          }
+        }
+      
+        else {
+          if ( m.getFruit().getSize() > 1 ) {
+            m.getFruitSpawn().setFruited(true);
+            m.getFruitSpawn().setDot(m.getFruit().pop());
+          }
+        }
+      
+      }
+    }
+    
+  }
+  
+  void eat() {
+    
+    if ( m.getTile(xpos,ypos).hasDot() ) {
+      if ( ! m.getTile(xpos,ypos).getDot().isEaten() ) {
+        
+        pointsL += m.getTile(xpos,ypos).getDot().getPoints();
+        pointsO += m.getTile(xpos,ypos).getDot().getPoints();
+        m.getTile(xpos,ypos).getDot().eaten();
+        
+        if ( m.getTile(xpos,ypos).getType() == 8 ) { //fruit
+          m.getTile(xpos,ypos).setFruited(false);
+        }
+        else { //nonfruit
+          m.setDotCount(m.getDotCount()-1);
+        }
+        
+      }
+    }
+    
+  }
+  
   void setDirectionX(int i) {
     directionX = i;
   }
@@ -89,8 +131,12 @@ class Pacman extends Character {
     return m;
   }
   
-  int getPoints() {
-    return points;
+  void setPointsL(int i) {
+    pointsL = i;
+  }
+  
+  int getPointsO() {
+    return pointsO;
   }
   
   int getLives() {

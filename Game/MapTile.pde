@@ -7,16 +7,18 @@ class MapTile {
   
   int type; //TYPELIST: ghost spawn = 0, void = 1, wall = 2
             //dotted path = 3, glowy dotted path = 4, nondotted path = 5
-            //pacman spawn = 6, warp space = 7
+            //pacman spawn = 6, warp space = 7, fruit spawn = 8
   color col;
   int xpos;
   int ypos;
   Dot dot;
+  boolean fruited;
   
   MapTile(int t, int x, int y) {
     type = t;
     xpos = x;
     ypos = y;
+    fruited = false;
     if ( type <= 1 ) { //void space
       col = color(100,100,200); 
     }
@@ -26,7 +28,7 @@ class MapTile {
     else if ( type == 7 ) { //warp space
       col = color(250,100,200);
     }
-    else { //path (3-6)
+    else { //path (3-8, but not 7)
       col = color(0);
       
       if ( hasDot() ) {
@@ -46,11 +48,24 @@ class MapTile {
   }
   
   boolean hasDot() {
-    return type == 3 || type == 4;
+    if ( type == 8 ) {
+      return fruited;
+    }
+    else {
+      return type == 3 || type == 4;
+    }
+  }
+  
+  void setDot(Dot d) {
+    dot = d;
   }
   
   Dot getDot() {
     return dot;
+  }
+  
+  int getType() {
+    return type;
   }
   
   int getX() {
@@ -59,6 +74,10 @@ class MapTile {
   
   int getY() {
     return ypos;
+  }
+  
+  void setFruited(boolean b) {
+    fruited = b;
   }
   
   void draw() {

@@ -40,3 +40,8 @@ This project now resembles Pacman a bit more, as there are dots that can be eate
 Kate implemented points and lives.
 Kate also worked on gameflow.
 Where is everyone else??
+
+6/12/16
+Kate worked more on Gameflow, and implemented Fruit with Stacks.
+Ziyan kept working on Ghost.
+Shamaul began the high score BST.
