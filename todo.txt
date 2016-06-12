@@ -1,15 +1,17 @@
 TO DO LIST!
 
-Soon:
+Essential:
 
-- Get ghosts on the board!
-- Gameflow (starting, ending, leveling up)
-- Glowy dots -- eating ghosts
+- Eating dots -- DONE!
+- Info (score, lives, level) -- DONE!
+- Get ghosts on the board! -- ALMOST!
+- Gameflow (starting, ending, leveling up) -- ALMOST!
+- Glowy dots, eating ghosts -- NOT DONE!
 
 In the future:
 - Fruits?
 - High scores!
-- Stacks to store ghosts
+- Stack to store ghosts
 
 
 FAR in the future (probably not happening):

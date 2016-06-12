@@ -6,15 +6,15 @@ Team Who Killed JFKate -- FINAL PROJECT! */
   Required classes: Map, MapTile, Character, Ghost, Pacman, Dot, Fruit, GlowyDot, RegDot, Stack, ALStack
   =============================================*/
 
+int gameState = START;
 Pacman pac = new Pacman();
-int gameState = PLAYING;
+Ghost a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
+Ghost b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
+Ghost c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
 
 final static int START = 0;
 final static int PLAYING = 1;
 final static int GAMEOVER = 2;
-Ghost a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
-Ghost b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
-Ghost c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
 
 void setup() {
     size(630,630);
@@ -84,7 +84,7 @@ void setup() {
         gameState = GAMEOVER;
       }
       else {
-        restartLevel();
+        waitScreen();
       }
     }
   }
@@ -94,17 +94,22 @@ void setup() {
     return false;
   }
   
-  void restartLevel() {
-    //pacman just died, so restart the level
-    waitScreen();
-  }
-  
   void gameOver() {
-    //what happens at the end of the game?
+    pac.getMap().draw();
+    textSize(100);
+    fill(255);
+    text("GAMEOVER!",25,315);
+    textSize(50);
+    text("Final Score: " + pac.getPoints(),130,380);
   }
   
   void waitScreen() {
-    //about to start something new...
+    pac.setX(pac.getMap().getStart().getX());
+    pac.setY(pac.getMap().getStart().getY());
+    pac.draw();
+    info();
+    //WAIT 3 SECONDS -- how??
+    gameState = PLAYING;
   }
   
   void keyPressed() {
