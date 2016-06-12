@@ -19,20 +19,20 @@ class Ghost extends Character {
     col = c;
     p = z;
     if(c == color(0,255,255)){
+       startx = 8;
+       xpos = 8;
+       starty = 9;
+       ypos = 9;
+    }
+    if(c == color(255,192,203)){
        startx = 9;
        xpos = 9;
        starty = 9;
        ypos = 9;
     }
-    if(c == color(255,192,203)){
+    if(c == color(255,0,0)){
        startx = 10;
        xpos = 10;
-       starty = 9;
-       ypos = 9;
-    }
-    if(c == color(255,0,0)){
-       startx = 11;
-       xpos = 11;
        starty = 9;
        ypos = 9;
     }
@@ -47,22 +47,18 @@ class Ghost extends Character {
   
   void move() { 
     if(state == DEAD){
-      targetx = startx;
-      targety= starty;
+      target(startx,starty);
       setMove(m);
-      wall();
       if(startx == xpos && starty == ypos){
         this.changeState(ALIVE);
-        targetx = p.getX();
-        targety = p.getY();
+        targetx = p.getX()/30;
+        targety = p.getY()/30;
       }
       draw();
     }
     else{
-      targetx = p.getX();
-      targety = p.getY();
+      target(p.getX()/30, p.getY()/30);
       setMove(m);
-      wall();
       draw();
     } 
   }
@@ -97,12 +93,11 @@ class Ghost extends Character {
   void setMove(MapTile[][] a) { 
      //helper find all paths
      //return x/y cord to move
-
      if (targetx < xpos) {
       if (xpos > 0 && a[xpos-1][ypos].isPath()) {
         xpos--; //left
       }
-      else {
+      else{
        if (targety < ypos) {
         if (ypos > 0 && a[xpos][ypos-1].isPath()) {
          ypos--; //up
@@ -111,12 +106,12 @@ class Ghost extends Character {
           if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
             xpos++; //right
           }
-          else {
+          else if (ypos < a.length){
            ypos++; //down
           }
         }
        }
-       else {
+       else if (targety > ypos){
          if (ypos < a.length && a[xpos][ypos+1].isPath()) {
          ypos++; //down
         }
@@ -124,14 +119,14 @@ class Ghost extends Character {
           if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
             xpos++; //right
           }
-          else {
+          else if(ypos > 0){
            ypos--; //up
           }
         }
       }
       }
       }
-     else {
+     else if(targetx > xpos) {
        if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
             xpos++; //right
           }
@@ -142,9 +137,9 @@ class Ghost extends Character {
         }
         else {
           if (xpos > 0 && a[xpos-1][ypos].isPath()) {
-        xpos--; //left
+               xpos--; //left
          }
-          else {
+          else if (ypos < a.length) {
            ypos++; //down 
           }
         }
