@@ -1,5 +1,6 @@
 /*=============================================
   class Fruit -- A subclass of Dot!
+  TODO: Implement, Move
   =============================================*/
   
 class Fruit extends Dot {

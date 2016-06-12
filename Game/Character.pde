@@ -32,10 +32,6 @@ abstract class Character {
   
   abstract void wall();
   
-  boolean isDead() {
-     return state == DEAD; 
-  }
-  
   void setColor(color c) {
       col = c;   
   }
@@ -54,6 +50,14 @@ abstract class Character {
   
   int getY() {
     return ypos;
+  }
+  
+  void setX(int x) {
+    xpos = x;
+  }
+  
+  void setY(int y) {
+    ypos = y;
   }
   
   void draw() {

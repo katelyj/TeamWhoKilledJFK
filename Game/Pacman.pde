@@ -25,6 +25,7 @@ class Pacman extends Character {
     
     warp();
     wall();
+    die();
     
     if ( m.getTile(xpos,ypos).hasDot() ) {
       if ( ! m.getTile(xpos,ypos).getDot().isEaten() ) {
@@ -34,16 +35,20 @@ class Pacman extends Character {
       }
     }
     
+    if ( points == 10000 ) {
+      lives += 1;
+    }
+    
   }
   
   void warp() {
     if ( m.getTile(xpos,ypos).isWarp() ) {
       if ( m.getTile(xpos,ypos).equals(m.getWarp1()) ) {
-        xpos = m.getWarp2().getX()-30;
+        xpos = m.getWarp2().getX()-30; //so pacman won't get stuck in a loop
         ypos = m.getWarp2().getY();
       }
       else {
-        xpos = m.getWarp1().getX()+30;
+        xpos = m.getWarp1().getX()+30; //so pacman won't get stuck in a loop
         ypos = m.getWarp2().getY();
       }
     }
@@ -90,6 +95,10 @@ class Pacman extends Character {
   
   int getLives() {
     return lives;
+  }
+  
+  void setLives(int l) {
+    lives = l;
   }
   
   void draw() {

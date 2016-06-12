@@ -31,8 +31,8 @@ class Map {
                   {1,2,3,2,2,2,2,2,2,3,2,3,2,2,2,2,2,2,3,2,1},
                   {1,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,1},
                   {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1}};
-   int[][] map2 = map1;
-   int[][] map3 = map1;
+   int[][] map2 = map1; //if we had time, we would make more maps
+   int[][] map3 = map1; //but for now, with our limited time, we're only using one
   
   Map() {
     mapLevel = 1;
@@ -49,7 +49,6 @@ class Map {
     }
     else {
       setMap(map3);
-      mapLevel = 1;
     }
   }
   
@@ -91,6 +90,10 @@ class Map {
     setMap();
   }
   
+  boolean hasGhost() { //IMPLEMENT THIS
+    return false;
+  }
+  
   void setDotCount(int d) {
     dotCount = d;
   }
@@ -113,6 +116,10 @@ class Map {
   
   MapTile getWarp2() {
     return warp2;
+  }
+  
+  int getMapLevel() {
+    return mapLevel;
   }
   
   void draw() {

@@ -38,3 +38,5 @@ This project now resembles Pacman a bit more, as there are dots that can be eate
 
 6/11/16
 Kate implemented points and lives.
+Kate also worked on gameflow.
+Where is everyone else??

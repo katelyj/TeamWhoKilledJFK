@@ -1,5 +1,6 @@
 /*=============================================
   class Ghost -- A subclass of Character!
+  TODO: Implement
   =============================================*/
 
 class Ghost extends Character {

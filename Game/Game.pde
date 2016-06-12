@@ -7,7 +7,7 @@ Team Who Killed JFKate -- FINAL PROJECT! */
   =============================================*/
 
 Pacman pac = new Pacman();
-int gameState = START;
+int gameState = PLAYING;
 
 final static int START = 0;
 final static int PLAYING = 1;
@@ -25,6 +25,7 @@ void setup() {
   }
   
   void draw() {
+<<<<<<< HEAD
       clear();
       pac.draw();
       pac.move();
@@ -32,6 +33,88 @@ void setup() {
       a.move();
       b.move();
       c.move();
+=======
+    
+    if ( gameState == START ) {
+      startGame();
+    }
+  
+    else if ( gameState == PLAYING ) {
+      play();
+    }
+    
+    else {
+      gameOver();
+    }
+    
+>>>>>>> origin/master
+  }
+  
+  void startGame() {
+    //options: start game, view highscores, etc
+    //if start game:
+    waitScreen();
+  }
+  
+  void play() {
+    clear();
+    pac.draw();
+    info();
+    pac.move();
+    win();
+    die();
+  }
+  
+  void win() {
+    if ( pac.getMap().getDotCount() == 0 ) {
+      levelUp();
+    }
+  }
+  
+  void levelUp() {
+    
+    pac.getMap().nextMap();
+    pac.setX(pac.getMap().getStart().getX());
+    pac.setY(pac.getMap().getStart().getY());
+    
+    if ( pac.getMap().getMapLevel() > 3 ) {
+      gameState = GAMEOVER;
+    }
+    else {
+      waitScreen();
+    }
+    
+  }
+  
+  void die() {
+    if ( ghost() ) {
+      pac.changeState(0);
+      pac.setLives(pac.getLives()-1);
+      if ( pac.getLives() <= 0 ) {
+        gameState = GAMEOVER;
+      }
+      else {
+        restartLevel();
+      }
+    }
+  }
+  
+  boolean ghost() {
+    //filler until implemented -- if pacman touching ghost
+    return false;
+  }
+  
+  void restartLevel() {
+    //pacman just died, so restart the level
+    waitScreen();
+  }
+  
+  void gameOver() {
+    //what happens at the end of the game?
+  }
+  
+  void waitScreen() {
+    //about to start something new...
   }
   
   void keyPressed() {
@@ -59,17 +142,6 @@ void setup() {
     
   }
   
-  boolean gameOver() {
-      boolean r = pac.getMap().getDotCount() == 0 ;
-      if ( r ) { gameState = GAMEOVER; }
-      return r;
-  }
-  
-  void levelUp() {
-    //speed --> increases
-    //map --> next?
-  }
-  
   void info() {
     
     //points
@@ -86,5 +158,10 @@ void setup() {
       x += 20;
       n += 1;
     }
+    
+    //level
+    textSize(25);
+    fill(255);
+    text("Level " + pac.getMap().getMapLevel(),300,630);
     
   }
