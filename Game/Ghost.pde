@@ -1,6 +1,5 @@
 /*=============================================
   class Ghost -- A subclass of Character!
-  TODO: Implement
   =============================================*/
 
 class Ghost extends Character {
@@ -9,145 +8,223 @@ class Ghost extends Character {
   int starty;
   int targetx;
   int targety;
+  boolean a;
+  boolean b;
+  boolean c;
+  boolean d;
+  int u;
+  int v;
   color col;
   Pacman p;
-  MapTile[][] m;
+  Map m;
   
-  Ghost( color c, MapTile[][] a, Pacman z ) {
+  Ghost( color c, Map a, Pacman z ) {
     super();
     setColor(c);
     m = a;
     col = c;
     p = z;
+    u = 0;
+    v = 0;
     if(c == color(0,255,255)){
-       startx = 8;
-       xpos = 8;
-       starty = 9;
-       ypos = 9;
+       startx = 345;
+       xpos = 345;
+       starty = 285;
+       ypos = 285;
+       speed = 1;
     }
     if(c == color(255,192,203)){
-       startx = 9;
-       xpos = 9;
-       starty = 9;
-       ypos = 9;
+       startx = 285;
+       xpos = 285;
+       starty = 285;
+       ypos = 285;
+       speed = 2;
     }
     if(c == color(255,0,0)){
-       startx = 10;
-       xpos = 10;
-       starty = 9;
-       ypos = 9;
+       startx = 315;
+       xpos = 315;
+       starty = 285;
+       ypos = 285;
+       speed = 1;
     }
     state = ALIVE;
+    draw();
   }
   
   void draw(){
        stroke(col);
        fill(col);
-       ellipse(xpos*30,ypos*30,30,30);
+       ellipse(xpos,ypos,30,30);
   }  
   
-  void move() { 
+  void move() {
     if(state == DEAD){
       target(startx,starty);
-      setMove(m);
+      setMove();
       if(startx == xpos && starty == ypos){
         this.changeState(ALIVE);
-        targetx = p.getX()/30;
-        targety = p.getY()/30;
+        targetx = p.getX();
+        targety = p.getY();
       }
       draw();
     }
+    else if(xpos >= 270 && xpos <= 360 && ypos < 300 && ypos > 255){
+       target(315,255);
+       setMove();
+       draw();
+    }
     else{
-      target(p.getX()/30, p.getY()/30);
-      setMove(m);
+      target(p.getX(), p.getY());
+      setMove();
       draw();
     } 
   }
+  
   
   
   
   void wall() { 
     
-    if ( ! m[xpos][ypos].isPath() ) {
-      xpos = xpos-speed*directionX;
-      ypos = ypos-speed*directionY;
-    }
-    
-    if ( xpos > width ) {
-      xpos = xpos-speed*directionX;
-    }
-    else if ( xpos < 0 ) {
-      xpos = xpos-speed*directionX;
-    }
-    else if ( ypos > height ) {
-      ypos = ypos-speed*directionY;
-    }
-    else if ( ypos < 0 ) {
-      ypos = ypos-speed*directionY;
-    }
-    else {
-      return;
-    } 
   }
   
   
-  void setMove(MapTile[][] a) { 
+  void setMove() { 
      //helper find all paths
      //return x/y cord to move
-     if (targetx < xpos) {
-      if (xpos > 0 && a[xpos-1][ypos].isPath()) {
-        xpos--; //left
-      }
-      else{
-       if (targety < ypos) {
-        if (ypos > 0 && a[xpos][ypos-1].isPath()) {
-         ypos--; //up
-        }
-        else {
-          if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
-            xpos++; //right
-          }
-          else if (ypos < a.length){
-           ypos++; //down
-          }
-        }
-       }
-       else if (targety > ypos){
-         if (ypos < a.length && a[xpos][ypos+1].isPath()) {
-         ypos++; //down
-        }
-        else {
-          if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
-            xpos++; //right
-          }
-          else if(ypos > 0){
-           ypos--; //up
-          }
-        }
-      }
-      }
-      }
-     else if(targetx > xpos) {
-       if (xpos < a[0].length && a[xpos+1][ypos].isPath()) {
-            xpos++; //right
-          }
-      else {
-       if (targety < ypos) {
-        if (ypos > 0 && a[xpos][ypos-1].isPath()) {
-         ypos--; //up
-        }
-        else {
-          if (xpos > 0 && a[xpos-1][ypos].isPath()) {
-               xpos--; //left
+     a = m.getTile(xpos-speed,ypos).isPath();
+     b = m.getTile(xpos,ypos-speed).isPath();
+     c = m.getTile(xpos+speed,ypos).isPath();
+     d = m.getTile(xpos,ypos+speed).isPath();
+     
+         if(abs(targetx - xpos) < 5){
+            u = 2;
          }
-          else if (ypos < a.length) {
-           ypos++; //down 
-          }
-        }
-       }
-      }
+         else if(targetx < xpos){
+            u = 0;
+         }
+         else{
+            u = 1;
+         }
+         
+         if(abs(targety - ypos) < 5){
+            v = 2;
+         }
+         if(targety < ypos){
+            v = 0;
+         }
+         else{
+            v = 1;
+         }
+    if(u == 2){
+           if(v == 0){
+               if(b){  
+                       ypos-=speed;
+               }
+               else{
+                  if(a){
+                       xpos-=speed;
+                  }
+                  else if(c){
+                       xpos+=speed;
+                  }
+                  else{
+                      ypos+=speed;
+                  }
+               }
+           }
+           else if(v == 1){
+               if(d){
+                       ypos+=speed;
+               }
+               else{
+                  if(a){
+                       xpos-=speed;
+                  }
+                  else if(c){
+                       xpos+=speed;
+                  }
+                  else{
+                      ypos-=speed;
+                  }
+               }
+           }
+           else{
+             if(state == ALIVE){
+                p.changeState(DEAD);
+             }
+           }
      }
-  }
+     else if(v == 2){
+           if(u == 0){
+               if(a){
+                       xpos-=speed;
+               }
+               else{
+                  if(b){
+                       ypos-=speed;
+                  }
+                  else if(d){
+                       ypos+=speed;
+                  }
+                  else{
+                      xpos+=speed;
+                  }
+               }
+           }
+           else{
+               if(b){
+                       xpos+=speed;
+               }
+               else{
+                  if(b){
+                       ypos-=speed;
+                  }
+                  else if(d){
+                       ypos+=speed;
+                  }
+                  else{
+                      xpos-=speed;
+                  }
+               }
+           }
+     }
+           else if(u == 0){
+               if(a){
+                       xpos-=speed;
+               }
+               else{
+                  if(v == 0 && b){
+                       ypos-=speed;
+                  }
+                  else{
+                    if(d){
+                       ypos+=speed;
+                    }
+                    else{
+                       xpos+=speed;
+                    }
+                  }
+               }
+           }
+           else if(u == 1){
+               if(c){
+                       xpos+=speed;
+               }
+               else{
+                  if(v == 0 && b){
+                       ypos-=speed;
+                  }
+                  else if(d){
+                       ypos+=speed;
+                  }
+                  else{
+                      xpos-=speed;
+                  }
+               }
+           }
+   }
+     
+     
   
   
   void target(int x, int y) {
