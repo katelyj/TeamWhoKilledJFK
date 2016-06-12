@@ -33,6 +33,23 @@ abstract class Dot {
     return points;
   }
   
+  int getX() {
+    return xpos;
+  }
+  
+  int getY() {
+    return ypos;
+  }
+  
+  void setX(int x) {
+    xpos = x;
+  }
+  
+  void setY(int y) {
+    ypos = y;
+  }
+  
+  
   void draw() {
     if ( ! isEaten() ) {
       stroke(col);

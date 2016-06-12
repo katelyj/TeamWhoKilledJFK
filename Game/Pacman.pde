@@ -8,6 +8,8 @@ class Pacman extends Character {
   int pointsL; //points per level
   int pointsO; //points overall
   int lives;
+  boolean lifeAdded;
+  ArrayList<Fruit> eatenFruits;
   
   Pacman() {
     super();
@@ -15,9 +17,11 @@ class Pacman extends Character {
     pointsL = 0;
     pointsO = 0;
     lives = 3;
+    lifeAdded = false;
     col = color(255,204,0);
     xpos = m.getStart().getX();
     ypos = m.getStart().getY();
+    eatenFruits = new ArrayList<Fruit>();
   }
   
   void move() {
@@ -32,8 +36,9 @@ class Pacman extends Character {
     spawnFruit();
     
     //checking for extra life
-    if ( pointsO == 10000 ) {
+    if ( pointsO == 5000 && ! lifeAdded ) {
       lives += 1;
+      lifeAdded = true;
     }
     
   }
@@ -108,6 +113,9 @@ class Pacman extends Character {
         m.getTile(xpos,ypos).getDot().eaten();
         
         if ( m.getTile(xpos,ypos).getType() == 8 ) { //fruit
+          m.getTile(xpos,ypos).getDot().setX(420+20*eatenFruits.size());
+          m.getTile(xpos,ypos).getDot().setY(600);
+          eatenFruits.add((Fruit)(m.getTile(xpos,ypos).getDot()));
           m.getTile(xpos,ypos).setFruited(false);
         }
         else { //nonfruit
@@ -145,6 +153,10 @@ class Pacman extends Character {
   
   void setLives(int l) {
     lives = l;
+  }
+  
+  ArrayList<Fruit> getEatenFruits() {
+    return eatenFruits;
   }
   
   void draw() {

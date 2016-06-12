@@ -5,10 +5,11 @@
 class Fruit extends Dot {
   
   int type;
-  //TYPES: cherry = 100, strawberry = 300, orange = 500
+  //TYPELIST: cherry = 100, strawberry = 300, orange = 500
   //apple = 700, melon = 1000, blueberry = 1300
   color stemCol;
   
+  //constructorv2: takes a type and a spawn tile
   Fruit(int t, MapTile spawn) {
     super(t,spawn.getX(),spawn.getY());
     type = t; //type matches amount of points
@@ -44,7 +45,7 @@ class Fruit extends Dot {
     }
     
   }
-  
+
   void draw() {
     
     if ( type == 100 ) { //cherry
