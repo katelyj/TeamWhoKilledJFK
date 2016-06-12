@@ -57,6 +57,7 @@ void setup() {
   
   void win() {
     if ( pac.getMap().getDotCount() == 0 ) {
+      //WAIT 3 SECONDS -- HOW???
       levelUp();
     }
   }
@@ -64,6 +65,7 @@ void setup() {
   void levelUp() {
     
     pac.getMap().nextMap();
+    pac.setSpeed(pac.getSpeed()+1);
     pac.setX(pac.getMap().getStart().getX());
     pac.setY(pac.getMap().getStart().getY());
     
@@ -77,16 +79,21 @@ void setup() {
   }
   
   void die() {
+    
     if ( ghost() ) {
       pac.changeState(0);
       pac.setLives(pac.getLives()-1);
+      //WAIT 3 SECONDS -- HOW???
+      
       if ( pac.getLives() <= 0 ) {
         gameState = GAMEOVER;
       }
       else {
         waitScreen();
       }
+      
     }
+    
   }
   
   boolean ghost() {
@@ -108,7 +115,7 @@ void setup() {
     pac.setY(pac.getMap().getStart().getY());
     pac.draw();
     info();
-    //WAIT 3 SECONDS -- how??
+    //WAIT 3 SECONDS -- HOW???
     gameState = PLAYING;
   }
   

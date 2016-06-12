@@ -7,7 +7,7 @@ class MapTile {
   
   int type; //TYPELIST: ghost spawn = 0, void = 1, wall = 2
             //dotted path = 3, glowy dotted path = 4, nondotted path = 5
-            //pacman spawn = 6, warp space = 7
+            //pacman spawn = 6, warp space = 7, fruit spawn = 8
   color col;
   int xpos;
   int ypos;
@@ -26,7 +26,7 @@ class MapTile {
     else if ( type == 7 ) { //warp space
       col = color(250,100,200);
     }
-    else { //path (3-6)
+    else { //path (3-8, but not 7)
       col = color(0);
       
       if ( hasDot() ) {

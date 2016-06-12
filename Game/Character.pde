@@ -44,6 +44,14 @@ abstract class Character {
     return state;
   }
   
+  void setSpeed(int s) {
+    speed = s;
+  }
+  
+  int getSpeed() {
+    return speed;
+  }
+  
   int getX() {
     return xpos;
   }

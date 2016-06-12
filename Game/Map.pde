@@ -8,6 +8,7 @@ class Map {
   MapTile start;
   MapTile warp1;
   MapTile warp2;
+  MapTile fruitSpawn;
   int mapLevel;
   int dotCount;
   int[][] map1 = {{1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1},
@@ -19,7 +20,7 @@ class Map {
                   {1,2,2,2,2,3,2,2,2,5,2,5,2,2,2,3,2,2,2,2,1},
                   {1,1,1,1,2,3,2,5,5,5,5,5,5,5,2,3,2,1,1,1,1},
                   {2,2,2,2,2,3,2,5,0,0,5,0,0,5,2,3,2,2,2,2,2},
-                  {7,5,5,5,5,3,5,5,0,5,5,5,0,5,5,3,5,5,5,5,7},
+                  {7,5,5,5,5,3,5,5,0,5,5,5,0,8,5,3,5,5,5,5,7},
                   {2,2,2,2,2,3,2,5,0,0,0,0,0,5,2,3,2,2,2,2,2},
                   {1,1,1,1,2,3,2,5,5,5,5,5,5,5,2,3,2,1,1,1,1},
                   {1,2,2,2,2,3,2,5,2,2,2,2,2,5,2,3,2,2,2,2,1},
@@ -59,21 +60,25 @@ class Map {
         
         map[x][y] = new MapTile(m[x][y],y*30,x*30);
         
-        if ( m[x][y] == 3 || m[x][y] == 4 ) {
+        if ( m[x][y] == 3 || m[x][y] == 4 ) { //dotted
           dotCount += 1;
         }
         
-        if ( m[x][y] == 6 ) {
+        else if ( m[x][y] == 6 ) { //spawn space
           start = map[x][y];
         }
         
-        else if ( m[x][y] == 7 ) {
+        else if ( m[x][y] == 7 ) { //warp space
           if ( warp1 == null ) {
             warp1 = map[x][y];
           }
           else {
             warp2 = map[x][y];
           }
+        }
+        
+        else if ( m[x][y] == 8 ) { //fruit spawn
+          fruitSpawn = map[x][y];
         }
         
       }
@@ -114,12 +119,16 @@ class Map {
     return warp2;
   }
   
+  MapTile getFruitSpawn() {
+    return fruitSpawn;
+  }
+  
   int getMapLevel() {
     return mapLevel;
   }
   
  MapTile[][] retMap() {
-     return map; 
+    return map; 
   }
   
   void draw() {
