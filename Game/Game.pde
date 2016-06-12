@@ -168,7 +168,6 @@ void setup() {
     text("Level " + pac.getMap().getMapLevel(),300,630);
     
     //fruits
-    int i = 0;
     for ( Fruit f : pac.getEatenFruits() ) {
       f.draw();
     }

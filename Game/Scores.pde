@@ -33,6 +33,7 @@ class Scores {
                 insert( stRoot.getRight(), newNode );
             return;
         }
+    }
     
 	public void inOrderTrav() {
 	    inOrderTrav( _root );

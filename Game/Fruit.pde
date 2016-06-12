@@ -9,7 +9,6 @@ class Fruit extends Dot {
   //apple = 700, melon = 1000, blueberry = 1300
   color stemCol;
   
-  //constructorv2: takes a type and a spawn tile
   Fruit(int t, MapTile spawn) {
     super(t,spawn.getX(),spawn.getY());
     type = t; //type matches amount of points
