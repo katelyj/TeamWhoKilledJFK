@@ -3,15 +3,15 @@ TO DO LIST!
 Soon:
 
 - Get ghosts on the board!
-- Further implement points
 - Gameflow (starting, ending, leveling up)
-- Time (with glowy dots) and eating ghosts
-- Display points on board
-- LIVES!
+- Glowy dots -- eating ghosts
 
 In the future:
 - Fruits?
 - High scores!
 - Stacks to store ghosts
+
+
+FAR in the future (probably not happening):
+
 - More maps
-- Transition screens
