@@ -12,28 +12,16 @@ int gameState = PLAYING;
 final static int START = 0;
 final static int PLAYING = 1;
 final static int GAMEOVER = 2;
-Ghost a;
-Ghost b;
-Ghost c;
+Ghost a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
+Ghost b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
+Ghost c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
 
 void setup() {
     size(630,630);
     background(0);
-    a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
-    b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
-    c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
   }
   
   void draw() {
-<<<<<<< HEAD
-      clear();
-      pac.draw();
-      pac.move();
-      info();
-      a.move();
-      b.move();
-      c.move();
-=======
     
     if ( gameState == START ) {
       startGame();
@@ -47,7 +35,6 @@ void setup() {
       gameOver();
     }
     
->>>>>>> origin/master
   }
   
   void startGame() {
@@ -61,6 +48,9 @@ void setup() {
     pac.draw();
     info();
     pac.move();
+    a.move();
+    b.move();
+    c.move();
     win();
     die();
   }
