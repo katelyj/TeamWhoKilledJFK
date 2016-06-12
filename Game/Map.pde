@@ -53,6 +53,10 @@ class Map {
     }
   }
   
+  MapTile[][] retMap(){
+     return map; 
+  }
+  
   void setMap(int[][] m) {
     for ( int x = 0 ; x < m.length ; x++ ) {
       

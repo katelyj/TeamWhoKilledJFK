@@ -12,19 +12,26 @@ int gameState = START;
 final static int START = 0;
 final static int PLAYING = 1;
 final static int GAMEOVER = 2;
+Ghost a;
+Ghost b;
+Ghost c;
 
 void setup() {
     size(630,630);
     background(0);
+    a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
+    b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
+    c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
   }
   
   void draw() {
-  
       clear();
       pac.draw();
-      info();
       pac.move();
-    
+      info();
+      a.move();
+      b.move();
+      c.move();
   }
   
   void keyPressed() {

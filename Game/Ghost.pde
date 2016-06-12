@@ -20,16 +20,23 @@ class Ghost extends Character {
     p = z;
     if(c == color(0,255,255)){
        startx = 9;
+       xpos = 9;
        starty = 9;
+       ypos = 9;
     }
     if(c == color(255,192,203)){
-       startx = 9;
-       starty = 10;
+       startx = 10;
+       xpos = 10;
+       starty = 9;
+       ypos = 9;
     }
     if(c == color(255,0,0)){
-       startx = 9;
-       starty = 11;
+       startx = 11;
+       xpos = 11;
+       starty = 9;
+       ypos = 9;
     }
+    state = ALIVE;
   }
   
   void draw(){
@@ -52,6 +59,8 @@ class Ghost extends Character {
       draw();
     }
     else{
+      targetx = p.getX();
+      targety = p.getY();
       setMove(m);
       wall();
       draw();
