@@ -52,10 +52,6 @@ class Map {
     }
   }
   
-  MapTile[][] retMap(){
-     return map; 
-  }
-  
   void setMap(int[][] m) {
     for ( int x = 0 ; x < m.length ; x++ ) {
       
@@ -120,6 +116,10 @@ class Map {
   
   int getMapLevel() {
     return mapLevel;
+  }
+  
+ MapTile[][] retMap() {
+     return map; 
   }
   
   void draw() {
