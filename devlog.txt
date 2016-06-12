@@ -42,6 +42,6 @@ Kate also worked on gameflow.
 Where is everyone else??
 
 6/12/16
-Kate worked more on Gameflow.
+Kate worked more on Gameflow, and implemented Fruit with Stacks.
 Ziyan kept working on Ghost.
 Shamaul began the high score BST.

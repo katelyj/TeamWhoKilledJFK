@@ -66,6 +66,7 @@ void setup() {
     
     pac.getMap().nextMap();
     pac.setSpeed(pac.getSpeed()+1);
+    pac.setPointsL(0);
     pac.setX(pac.getMap().getStart().getX());
     pac.setY(pac.getMap().getStart().getY());
     
@@ -107,7 +108,7 @@ void setup() {
     fill(255);
     text("GAMEOVER!",25,315);
     textSize(50);
-    text("Final Score: " + pac.getPoints(),130,380);
+    text("Final Score: " + pac.getPointsO(),130,380);
   }
   
   void waitScreen() {
@@ -149,7 +150,7 @@ void setup() {
     //points
     textSize(25);
     fill(255);
-    text("Points: " + pac.getPoints(),10,630);
+    text("Score: " + pac.getPointsO(),10,630);
     
     //lives
     fill(255,204,0);

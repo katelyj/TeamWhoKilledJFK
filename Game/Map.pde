@@ -3,14 +3,19 @@
   =============================================*/
   
 class Map {
-  
-  MapTile[][] map = new MapTile[21][21];
+
   MapTile start;
   MapTile warp1;
   MapTile warp2;
   MapTile fruitSpawn;
+  
+  ALStack<Fruit> fruit;
+  
   int mapLevel;
   int dotCount;
+  int dotMax;
+  
+  MapTile[][] map = new MapTile[21][21];
   int[][] map1 = {{1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1},
                   {1,2,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3,2,1},
                   {1,2,4,2,2,3,2,2,2,3,2,3,2,2,2,3,2,2,4,2,1},
@@ -62,6 +67,7 @@ class Map {
         
         if ( m[x][y] == 3 || m[x][y] == 4 ) { //dotted
           dotCount += 1;
+          dotMax += 1;
         }
         
         else if ( m[x][y] == 6 ) { //spawn space
@@ -79,11 +85,32 @@ class Map {
         
         else if ( m[x][y] == 8 ) { //fruit spawn
           fruitSpawn = map[x][y];
+          map[x][y].setFruited(false);
+          fruits();
         }
         
       }
       
     }
+  }
+  
+  void fruits() {
+    
+    fruit = new ALStack<Fruit>();
+    
+    if ( mapLevel == 1) {
+      fruit.push(new Fruit(300,fruitSpawn));
+      fruit.push(new Fruit(100,fruitSpawn));
+    }
+    else if ( mapLevel == 2 ) {
+      fruit.push(new Fruit(700,fruitSpawn));
+      fruit.push(new Fruit(500,fruitSpawn));
+    }
+    else {
+      fruit.push(new Fruit(1300,fruitSpawn));
+      fruit.push(new Fruit(1000,fruitSpawn));
+    }
+    
   }
   
   void nextMap() {
@@ -101,6 +128,10 @@ class Map {
   
   int getDotCount() {
     return dotCount;
+  }
+  
+  int getDotMax() {
+    return dotMax;
   }
   
   MapTile getTile(int x, int y) {
@@ -121,6 +152,10 @@ class Map {
   
   MapTile getFruitSpawn() {
     return fruitSpawn;
+  }
+  
+  ALStack<Fruit> getFruit() {
+    return fruit;
   }
   
   int getMapLevel() {

@@ -5,8 +5,8 @@
 class Fruit extends Dot {
   
   int type;
-  //TYPES: cherry = 100, strawberry = 300
-  //orange = 500, apple = 700, melon = 1000
+  //TYPES: cherry = 100, strawberry = 300, orange = 500
+  //apple = 700, melon = 1000, blueberry = 1300
   color stemCol;
   
   Fruit(int t, MapTile spawn) {
@@ -35,8 +35,12 @@ class Fruit extends Dot {
       col = color(200,0,0);
     }
     
-    else { //melon
+    else if ( type == 1000 ) { //melon
       col = color(0,200,0);
+    }
+    
+    else { //blueberry
+      col = color(100,0,100);
     }
     
   }
@@ -70,7 +74,7 @@ class Fruit extends Dot {
       ellipse(xpos+15,ypos+10,8,8);
     }
     
-    else { //melon
+    else { //melon or blueberry
       stroke(col);
       fill(col);
       ellipse(xpos+15,ypos+15,radius,radius);

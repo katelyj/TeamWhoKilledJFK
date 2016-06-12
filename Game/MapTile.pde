@@ -12,11 +12,13 @@ class MapTile {
   int xpos;
   int ypos;
   Dot dot;
+  boolean fruited;
   
   MapTile(int t, int x, int y) {
     type = t;
     xpos = x;
     ypos = y;
+    fruited = false;
     if ( type <= 1 ) { //void space
       col = color(100,100,200); 
     }
@@ -46,11 +48,24 @@ class MapTile {
   }
   
   boolean hasDot() {
-    return type == 3 || type == 4;
+    if ( type == 8 ) {
+      return fruited;
+    }
+    else {
+      return type == 3 || type == 4;
+    }
+  }
+  
+  void setDot(Dot d) {
+    dot = d;
   }
   
   Dot getDot() {
     return dot;
+  }
+  
+  int getType() {
+    return type;
   }
   
   int getX() {
@@ -59,6 +74,10 @@ class MapTile {
   
   int getY() {
     return ypos;
+  }
+  
+  void setFruited(boolean b) {
+    fruited = b;
   }
   
   void draw() {

@@ -2,14 +2,14 @@ TO DO LIST!
 
 Essential:
 
-- Eating dots -- DONE!
-- Info (score, lives, level) -- DONE!
-- Get ghosts on the board! -- ALMOST!
-- Gameflow (starting, ending, leveling up) -- ALMOST!
+- Eating dots -- DONE! (Kate)
+- Info (score, lives, level) -- DONE! (Kate)
+- Get ghosts on the board! -- ALMOST! (Ziyan, Shamaul)
+- Gameflow (starting, ending, leveling up) -- ALMOST! (Kate)
+- Fruits  -- DONE! (Kate)
 - Glowy dots, eating ghosts -- NOT DONE!
 
 In the future:
-- Fruits?
 - High scores!
 - Stack to store ghosts
 
@@ -17,3 +17,4 @@ In the future:
 FAR in the future (probably not happening):
 
 - More maps
+- Moving fruits that disappear within time
