@@ -8,9 +8,9 @@ Team Who Killed JFKate -- FINAL PROJECT! */
 
 int gameState = START;
 Pacman pac = new Pacman();
-Ghost a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
-Ghost b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
-Ghost c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
+Ghost a = new Ghost(color(0,255,255), pac.getMap(), pac);
+Ghost b = new Ghost(color(255,192,203), pac.getMap(), pac);
+Ghost c = new Ghost(color(255,0,0), pac.getMap(), pac);
 
 final static int START = 0;
 final static int PLAYING = 1;
