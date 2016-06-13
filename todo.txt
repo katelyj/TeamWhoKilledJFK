@@ -6,9 +6,9 @@ TO DO LIST!
 - Fruits -- DONE! (Kate)
 - Gameflow (starting, ending, leveling up) -- DONE! (Kate)
 - Character eyes -- DONE! (Kate)
+- Ghosts change speed with each level -- DONE! (Kate)
 
-- Ghosts randomness -- NOT DONE!
-- Ghosts change speed with each level -- NOT DONE!
+- Fix third ghost -- NOT DONE!
 - Glowy dots, eating ghosts -- NOT DONE!
 - Implement high scores -- NOT DONE!
 
