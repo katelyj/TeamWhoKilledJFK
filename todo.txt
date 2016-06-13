@@ -7,10 +7,10 @@ TO DO LIST!
 - Gameflow (starting, ending, leveling up) -- DONE! (Kate)
 - Character eyes -- DONE! (Kate)
 - Ghosts change speed with each level -- DONE! (Kate)
+- Glowy dots, eating ghosts -- DONE! (Ziyan)
 
-- Fix third ghost -- NOT DONE!
-- Glowy dots, eating ghosts -- NOT DONE!
-- Implement high scores -- NOT DONE!
+- High Scores -- ALMOST (Shamaul)
 
+- Fix third ghost -- NOT HAPPENING :(
 - More maps -- NOT HAPPENING :(
 - Moving fruits that disappear within time -- NOT HAPPENING :(

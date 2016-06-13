@@ -17,7 +17,7 @@ class Pacman extends Character {
     m = new Map();
     pointsL = 0;
     pointsO = 0;
-    lives = 3;
+    lives = 5;
     lifeAdded = false;
     col = color(255,204,0);
     xpos = m.getStart().getX();
@@ -117,10 +117,12 @@ class Pacman extends Character {
         
         pointsL += m.getTile(xpos,ypos).getDot().getPoints();
         pointsO += m.getTile(xpos,ypos).getDot().getPoints();
-        if (m.getTile(xpos,ypos).getType() == 4){
-           setColor(color(119,0,0));
+        
+        if ( m.getTile(xpos,ypos).getType() == 4 ) {
+           setColor(color(0,0,200));
            ss = 300;
         }
+        
         m.getTile(xpos,ypos).getDot().eaten();
         
         if ( m.getTile(xpos,ypos).getType() == 8 ) { //fruit

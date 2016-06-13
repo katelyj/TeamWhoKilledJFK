@@ -45,3 +45,6 @@ Where is everyone else??
 Kate worked more on Gameflow, and implemented Fruit with Stacks.
 Ziyan kept working on Ghost.
 Shamaul began the high score BST.
+We worked late into the night, debugging and adding more details, making our project into its final, ready-to-submit version.
+Some functionality, as well as sleep, had to be sacraficed, but it's okay.
+Our project works.
