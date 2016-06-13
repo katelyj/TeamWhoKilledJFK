@@ -8,9 +8,9 @@ TO DO LIST!
 - Character eyes -- DONE! (Kate)
 - Ghosts change speed with each level -- DONE! (Kate)
 - Glowy dots, eating ghosts -- DONE! (Ziyan)
+- Fix third ghost -- DONE! (Ziyan)
 
-- High Scores -- ALMOST (Shamaul)
+- High Scores -- NOT DONE (Shamaul)
 
-- Fix third ghost -- NOT HAPPENING :(
 - More maps -- NOT HAPPENING :(
-- Moving fruits that disappear within time -- NOT HAPPENING :(
+- waitThreeSeconds() method -- NOT HAPPENING :(
