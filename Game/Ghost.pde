@@ -59,8 +59,8 @@ class Ghost extends Character {
       }
       draw();
     }
-    else if(xpos >= 270 && xpos <= 360 && ypos < 300 && ypos > 255){
-       target(315,255);
+    else if(xpos >= 270 && xpos <= 360 && ypos < 300 && ypos > 225){
+       target(315,225);
        setMove();
        draw();
     }
