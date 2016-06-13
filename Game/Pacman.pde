@@ -160,8 +160,19 @@ class Pacman extends Character {
   }
   
   void draw() {
+    //the map
     m.draw();
+    
+    //the man
     super.draw();
+    
+    //the eye
+    stroke(0);
+    fill(0);
+    ellipse(xpos+5,ypos-5,5,5);
+    
+    //the mouth
+    triangle(xpos+5,ypos+4,xpos+11,ypos+5,xpos+11,ypos+9);
   }
   
 }
