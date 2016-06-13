@@ -97,9 +97,18 @@ void setup() {
     
   }
   
-  boolean ghost() {
+    boolean ghost() {
     //filler until implemented -- if pacman touching ghost
-    return false;
+    if(sqrt(sq(pac.getX() - a.getX())+sq(pac.getY() - a.getY()))<=30){
+      return true;
+    }
+    else if(sqrt(sq(pac.getX() - b.getX())+sq(pac.getY() - b.getY()))<=30){
+      return true;
+    }
+    else if(sqrt(sq(pac.getX() - c.getX())+sq(pac.getY() - c.getY()))<=30){
+      return true;
+    }
+      return false;
   }
   
   void gameOver() {
