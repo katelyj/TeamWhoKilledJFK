@@ -42,10 +42,11 @@ class Pacman extends Character {
       lives += 1;
       lifeAdded = true;
     }
-    if(ss != 0){
+    
+    if ( ss != 0 ) {
        ss--;
     }
-    else{
+    else {
        col = color(255,204,0); 
     }      
   }
@@ -154,6 +155,14 @@ class Pacman extends Character {
   
   void setPointsL(int i) {
     pointsL = i;
+  }
+  
+  void setPointsO(int i) {
+    pointsO = i;
+  }
+  
+  int getPointsL() {
+    return pointsL;
   }
   
   int getPointsO() {
