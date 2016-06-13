@@ -8,9 +8,10 @@ Team Who Killed JFKate -- FINAL PROJECT! */
 
 int gameState = START;
 Pacman pac = new Pacman();
-Ghost a = new Ghost(color(0,255,255), pac.getMap().retMap(), pac);
-Ghost b = new Ghost(color(255,192,203), pac.getMap().retMap(), pac);
-Ghost c = new Ghost(color(255,0,0), pac.getMap().retMap(), pac);
+Ghost a = new Ghost(color(0,255,255), pac.getMap(), pac);
+Ghost b = new Ghost(color(255,192,203), pac.getMap(), pac);
+Ghost c = new Ghost(color(255,0,0), pac.getMap(), pac);
+int z = 300;
 
 final static int START = 0;
 final static int PLAYING = 1;
@@ -48,9 +49,17 @@ void setup() {
     pac.draw();
     info();
     pac.move();
-    a.move();
-    b.move();
-    c.move();
+    if(z == 0){
+      a.move();
+      b.move();
+      c.move();
+    }
+    else{
+       a.draw();
+       b.draw();
+       c.draw();
+       z--;
+    }
     win();
     die();
   }
@@ -97,18 +106,9 @@ void setup() {
     
   }
   
-    boolean ghost() {
+  boolean ghost() {
     //filler until implemented -- if pacman touching ghost
-    if(sqrt(sq(pac.getX() - a.getX())+sq(pac.getY() - a.getY()))<=30){
-      return true;
-    }
-    else if(sqrt(sq(pac.getX() - b.getX())+sq(pac.getY() - b.getY()))<=30){
-      return true;
-    }
-    else if(sqrt(sq(pac.getX() - c.getX())+sq(pac.getY() - c.getY()))<=30){
-      return true;
-    }
-      return false;
+    return false;
   }
   
   void gameOver() {

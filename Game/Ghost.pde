@@ -14,33 +14,29 @@ class Ghost extends Character {
   boolean d;
   int u;
   int v;
-  color col;
   Pacman p;
   Map m;
   
-  Ghost( color c, Map a, Pacman z ) {
+  Ghost( color i, Map a, Pacman z ) {
     super();
-    setColor(c);
+    setColor(i);
     m = a;
-    col = c;
     p = z;
-    u = 0;
-    v = 0;
-    if(c == color(0,255,255)){
+    if(i == color(0,255,255)){
        startx = 345;
        xpos = 345;
        starty = 285;
        ypos = 285;
        speed = 1;
     }
-    if(c == color(255,192,203)){
+    if(i == color(255,192,203)){
        startx = 285;
        xpos = 285;
        starty = 285;
        ypos = 285;
        speed = 2;
     }
-    if(c == color(255,0,0)){
+    if(i == color(255,0,0)){
        startx = 315;
        xpos = 315;
        starty = 285;
@@ -48,7 +44,6 @@ class Ghost extends Character {
        speed = 1;
     }
     state = ALIVE;
-    draw();
   }
   
   void draw(){
