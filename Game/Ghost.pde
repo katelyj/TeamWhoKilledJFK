@@ -46,12 +46,6 @@ class Ghost extends Character {
     state = ALIVE;
   }
   
-  void draw(){
-       stroke(col);
-       fill(col);
-       ellipse(xpos,ypos,30,30);
-  }  
-  
   void move() {
     if(state == DEAD){
       target(startx,starty);
