@@ -38,9 +38,20 @@ void setup() {
   }
   
   void startGame() {
-    //options: start game, view highscores, etc
-    //if start game:
-    waitScreen();
+    
+    pac.getMap().draw();
+    textSize(50);
+    fill(255);
+    text("Welcome to",175,100);
+    fill(255,204,0);
+    textSize(100);
+    text("PACMAN!",85,250);
+    
+    //start game instructions
+    textSize(50);
+    fill(255);
+    text("Press ENTER to begin!",50,325);
+    
   }
   
   void play() {
@@ -129,6 +140,10 @@ void setup() {
   }
   
   void keyPressed() {
+    
+    if (key == ENTER && gameState == START) {
+      waitScreen();
+    }
     
     if (key == CODED ) {
       
