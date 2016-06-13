@@ -49,7 +49,7 @@ class Ghost extends Character {
        xpos = 315;
        starty = 285;
        ypos = 285;
-       speed = 2;
+       speed = 1;
     }
     state = ALIVE;
   }
@@ -75,6 +75,14 @@ class Ghost extends Character {
        draw();
     }
     else{
+      if(col == color(255,0,0)){
+         if((int)(Math.random()*10) == 0){
+             speed = 5;
+         }
+         else{
+             speed = 1;
+         }
+       }
       target(p.getX(), p.getY());
       setMove();
       draw();
@@ -144,6 +152,7 @@ class Ghost extends Character {
            else{
              if(p.col == color(119,0,0)){
                  state = DEAD;
+                 p.pointsL += 500;
              }
            }
      }
