@@ -97,8 +97,7 @@ void setup() {
     
   }
   
-    boolean ghost() {
-    //filler until implemented -- if pacman touching ghost
+ boolean ghost() {
     if(sqrt(sq(pac.getX() - a.getX())+sq(pac.getY() - a.getY()))<=30){
       return true;
     }

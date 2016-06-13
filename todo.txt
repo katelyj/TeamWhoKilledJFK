@@ -4,15 +4,18 @@ Essential:
 
 - Eating dots -- DONE! (Kate)
 - Info (score, lives, level) -- DONE! (Kate)
-- Get ghosts on the board! -- ALMOST! (Ziyan, Shamaul)
+- Get ghosts on the board! -- DONE! (Ziyan, Shamaul)
+- Fruits -- DONE! (Kate)
 - Gameflow (starting, ending, leveling up) -- ALMOST! (Kate)
-- Fruits  -- DONE! (Kate)
+- Ghosts work properly -- NOT DONE!
+- Ghosts change speed with each level -- NOT DONE!
 - Glowy dots, eating ghosts -- NOT DONE!
+- Implement high scores -- NOT DONE!
 
 In the future:
+
 - High scores!
 - Stack to store ghosts
-
 
 FAR in the future (probably not happening):
 

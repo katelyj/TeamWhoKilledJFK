@@ -13,7 +13,6 @@ class Map {
   
   int mapLevel;
   int dotCount;
-  int dotMax;
   
   MapTile[][] map = new MapTile[21][21];
   int[][] map1 = {{1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1},
@@ -67,7 +66,6 @@ class Map {
         
         if ( m[x][y] == 3 || m[x][y] == 4 ) { //dotted
           dotCount += 1;
-          dotMax += 1;
         }
         
         else if ( m[x][y] == 6 ) { //spawn space
@@ -130,10 +128,6 @@ class Map {
     return dotCount;
   }
   
-  int getDotMax() {
-    return dotMax;
-  }
-  
   MapTile getTile(int x, int y) {
     return map[y/30][x/30];
   }
@@ -160,10 +154,6 @@ class Map {
   
   int getMapLevel() {
     return mapLevel;
-  }
-  
- MapTile[][] retMap() {
-    return map; 
   }
   
   void draw() {

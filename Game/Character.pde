@@ -30,8 +30,6 @@ abstract class Character {
   
   abstract void move();
   
-  abstract void wall();
-  
   void setColor(color c) {
       col = c;   
   }

@@ -14,7 +14,6 @@ class Ghost extends Character {
   boolean d;
   int u;
   int v;
-  color col;
   Pacman p;
   Map m;
   
@@ -26,26 +25,26 @@ class Ghost extends Character {
     p = z;
     u = 0;
     v = 0;
-    if(c == color(0,255,255)){
+    if( c == color(0,255,255) ) {
        startx = 345;
        xpos = 345;
        starty = 285;
        ypos = 285;
        speed = 1;
     }
-    if(c == color(255,192,203)){
+    if( c == color(255,192,203) ) {
        startx = 285;
        xpos = 285;
        starty = 285;
        ypos = 285;
        speed = 2;
     }
-    if(c == color(255,0,0)){
+    if( c == color(255,0,0) ) {
        startx = 315;
        xpos = 315;
        starty = 285;
        ypos = 285;
-       speed = 1;
+       speed = 2;
     }
     state = ALIVE;
   }
@@ -72,14 +71,6 @@ class Ghost extends Character {
       draw();
     } 
   }
-  
-  
-  
-  
-  void wall() { 
-    
-  }
-  
   
   void setMove() { 
      //helper find all paths
@@ -216,9 +207,6 @@ class Ghost extends Character {
                }
            }
    }
-     
-     
-  
   
   void target(int x, int y) {
       targetx = x;
