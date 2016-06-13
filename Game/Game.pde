@@ -96,7 +96,7 @@ void setup() {
     }
     
   }
-  
+
  boolean ghost() {
     if(sqrt(sq(pac.getX() - a.getX())+sq(pac.getY() - a.getY()))<=30){
       return true;
@@ -108,7 +108,7 @@ void setup() {
       return true;
     }
       return false;
-  }
+ }
   
   void gameOver() {
     pac.getMap().draw();
