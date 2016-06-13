@@ -4,10 +4,14 @@
 
 class Ghost extends Character {
  
+  final static int DEAD = 0;
+  final static int ALIVE = 1; 
+  
   int startx;
   int starty;
   int targetx;
   int targety;
+  int state;
   boolean a;
   boolean b;
   boolean c;
@@ -132,9 +136,7 @@ class Ghost extends Character {
                }
            }
            else{
-             if(state == ALIVE){
-                p.changeState(DEAD);
-             }
+             //nothing happens
            }
      }
      else if(v == 2){
@@ -210,6 +212,31 @@ class Ghost extends Character {
   void target(int x, int y) {
       targetx = x;
       targety = y;
+  }
+  
+  void changeState(int e) {
+     state = e;
+  }
+  
+  int getState() {
+    return state;
+  }
+  
+  int getStartX() {
+    return startx;
+  }
+  
+  int getStartY() {
+    return starty;
+  }
+  
+  void draw() {
+    super.draw();
+    //the eyes
+    stroke(0);
+    fill(0);
+    ellipse(xpos+5,ypos-5,5,5);
+    ellipse(xpos-5,ypos-5,5,5);
   }
   
 }

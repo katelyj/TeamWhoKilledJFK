@@ -5,12 +5,8 @@
 
 abstract class Character {
   
-  final static int DEAD = 0;
-  final static int ALIVE = 1; 
-  
   color col;
   int speed;
-  int state;
   int radius;
   int directionX;
   int directionY;
@@ -18,7 +14,6 @@ abstract class Character {
   int ypos;
   
   Character() {
-      state = ALIVE;
       col = color(0,0,0);
       speed = 2;
       radius = 30;
@@ -32,14 +27,6 @@ abstract class Character {
   
   void setColor(color c) {
       col = c;   
-  }
- 
-  void changeState(int e) {
-     state = e;
-  }
-  
-  int getState() {
-    return state;
   }
   
   void setSpeed(int s) {
