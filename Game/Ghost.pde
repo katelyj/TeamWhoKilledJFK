@@ -152,7 +152,8 @@ class Ghost extends Character {
            else{
              if(p.col == color(0,0,200)){
                  state = DEAD;
-                 p.pointsL += 500;
+                 p.pointsL += 100;
+                 p.pointsO += 100;
              }
            }
      }
