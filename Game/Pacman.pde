@@ -8,6 +8,7 @@ class Pacman extends Character {
   int pointsL; //points per level
   int pointsO; //points overall
   int lives;
+  int ss;
   boolean lifeAdded;
   ArrayList<Fruit> eatenFruits;
   
@@ -22,6 +23,7 @@ class Pacman extends Character {
     xpos = m.getStart().getX();
     ypos = m.getStart().getY();
     eatenFruits = new ArrayList<Fruit>();
+    ss = 0;
   }
   
   void move() {
@@ -40,7 +42,12 @@ class Pacman extends Character {
       lives += 1;
       lifeAdded = true;
     }
-    
+    if(ss != 0){
+       ss--;
+    }
+    else{
+       col = color(255,204,0); 
+    }      
   }
   
   void warp() {
@@ -110,6 +117,10 @@ class Pacman extends Character {
         
         pointsL += m.getTile(xpos,ypos).getDot().getPoints();
         pointsO += m.getTile(xpos,ypos).getDot().getPoints();
+        if (m.getTile(xpos,ypos).getType() == 4){
+           setColor(color(119,0,0));
+           ss = 300;
+        }
         m.getTile(xpos,ypos).getDot().eaten();
         
         if ( m.getTile(xpos,ypos).getType() == 8 ) { //fruit

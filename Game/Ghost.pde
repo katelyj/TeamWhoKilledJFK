@@ -18,6 +18,7 @@ class Ghost extends Character {
   boolean d;
   int u;
   int v;
+  int y;
   Pacman p;
   Map m;
   
@@ -28,6 +29,7 @@ class Ghost extends Character {
     p = z;
     u = 0;
     v = 0;
+    y = 300;
     if ( col == color(0,255,255) ) {
        startx = 345;
        xpos = 345;
@@ -54,16 +56,20 @@ class Ghost extends Character {
   
   void move() {
     if(state == DEAD){
-      target(startx,starty);
-      setMove();
-      if(startx == xpos && starty == ypos){
-        this.changeState(ALIVE);
-        targetx = p.getX();
-        targety = p.getY();
+      xpos = startx;
+      ypos = starty;
+      if(y == 0){
+          draw();
+          state = ALIVE;
+          targetx = p.getX();
+          targety = p.getY();
+          y = 300;
       }
-      draw();
+      else{
+          y--;
+      }
     }
-    else if(xpos >= 270 && xpos <= 360 && ypos < 300 && ypos > 225){
+    else if(xpos >= 270 && xpos <= 360 && ypos <= 300 && ypos > 230){
        target(315,225);
        setMove();
        draw();
@@ -96,7 +102,7 @@ class Ghost extends Character {
          if(abs(targety - ypos) < 5){
             v = 2;
          }
-         if(targety < ypos){
+         else if(targety < ypos){
             v = 0;
          }
          else{
@@ -136,7 +142,9 @@ class Ghost extends Character {
                }
            }
            else{
-             //nothing happens
+             if(p.col == color(119,0,0)){
+                 state = DEAD;
+             }
            }
      }
      else if(v == 2){

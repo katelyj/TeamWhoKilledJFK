@@ -95,7 +95,7 @@ void setup() {
   
   void die() {
     
-    if ( ghost() ) {
+    if ( pac.col == color(255,204,0) && ghost() ) {
       pac.setLives(pac.getLives()-1);
       waitThreeSeconds();
       
