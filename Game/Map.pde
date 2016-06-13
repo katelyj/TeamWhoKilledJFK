@@ -58,6 +58,12 @@ class Map {
   }
   
   void setMap(int[][] m) {
+    
+    start = null;
+    warp1 = null;
+    warp2 = null;
+    fruitSpawn = null;
+    
     for ( int x = 0 ; x < m.length ; x++ ) {
       
       for ( int y = 0 ; y < m[x].length ; y++ ) {
